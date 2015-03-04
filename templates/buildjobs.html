@@ -1,0 +1,167 @@
+<!--
+*
+* Based on one region containing 6 Teams currently with hard coded data
+* This is a mock data graph to display the number of build jobs
+* including active and inactive per Team
+* This chart will be interactive and allow the user to click on a
+* bar which will direct to a more detailed graph showing the
+* the active and inactive graphs for that one Team
+*
+-->
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+{% load staticfiles %}
+<html>
+	<head>
+		<title>SBuilJobs</title>
+		<link rel="stylesheet" type="text/css" href="{% static '/static/style/style.css' %}">
+		<script src="http://d3js.org/d3.v3.min.js"></script>
+        <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<meta charset="utf-8">
+
+	</head>
+	<body>
+
+		<div id="container" >
+			<div id="header"> <center>This is the IBM header from Dashboard</center></div>
+
+{#			<div id="sidebar">#}
+{#				<ul id="sidebar">#}
+{#					<li><a href="#.html" class ="button">Home</a></li>#}
+{#					<li><a href="#.html" class ="button">Buildjobs per Team</a></li>#}
+{#					<li><a href="#.html" class ="button">Graph 2</a></li>#}
+{#					<li><a href="#.html" class ="button">Graph 3</a></li>#}
+{#				</ul>#}
+{#			</div>#}
+
+			<div id="content">
+				<h3>Number of Buildjobs per Team</h3>
+                <svg class="chart"></svg>
+				<script>
+                    data = [];
+                    names = [];
+
+var getRequest = function(callbackResponse) {
+    $.ajax({
+        type: "GET",
+        url: "/api/buildjob",
+        cache: false,
+
+        success: function (response) {
+            console.log(response);
+            callbackResponse(response);
+        }
+    });
+};
+
+var callbackResponse = function(response){
+{#        Process data returned from Response #}
+
+
+    $.each(response,function(i,val){
+        data[i] = val.buildjob;
+        names[i] = val.name;
+    });
+//add d3 here
+{#   $.each(data,function(i,val){#}
+{#        console.log(val);#}
+{#    });#}
+    					var tip = d3.tip()
+					.attr('class', 'd3-tip')
+					.offset([-10, 0])
+					.html(function(d) {
+							return "<strong>Total:</strong> <span style='color:black'>" + d + "</span>";
+						});
+
+
+					var margin = {top: 30, right: 20, bottom: 20, left: 150},
+						width = 520,
+						barHeight = 20,
+						height = barHeight * data.length;
+
+					var x = d3.scale.linear()
+						.domain([0, d3.max(data)])
+						.range([0, width]);
+
+					var y = d3.scale.ordinal()
+						.domain(names)
+						.rangeBands([0, height]);
+
+					var y1 = d3.scale.ordinal()
+						.domain(data)
+						.rangeBands([0, height]);
+
+					var xAxis = d3.svg.axis()
+						.scale(x)
+						.orient("top")
+						.tickSize(-height);
+
+					var chart = d3.select(".chart")
+						.attr("width", width + margin.left + margin.right)
+						.attr("height", height + margin.top + margin.bottom)
+					    .append("g")
+						.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+					chart.call(tip);
+
+					chart.append("g")
+						.attr("fill", "steelblue")
+						.attr("class", "bars")
+					  .selectAll("rect")
+						.data(data)
+					  .enter().append("rect")
+						.attr("y", function(d, i) { return i * barHeight; })
+						.attr("height", barHeight - 1)
+						.attr("width", x);
+
+					chart.append("g")
+						.attr("class", "axis")
+						.call(xAxis)
+					  .select(".tick line")
+						.style("stroke", "#000");
+
+{#					chart.selectAll("text.data")#}
+{#						.data(data)#}
+{#						.enter().append("text")#}
+{#						.attr("x", x)#}
+{#						.attr("y", function(d){ return y1(d) + y1.rangeBand()/2; } )#}
+{#						.attr("dx", -5)#}
+{#						.attr("dy", ".36em")#}
+{#						.attr("text-anchor", "end")#}
+{#						.text(String);#}
+
+					chart.selectAll("text.name")
+						.data(names)
+						.enter().append("text")
+						.attr("x", -145)
+						.attr("y", function(d){ return y(d) + barHeight/2; } )
+						.attr("dy", ".36em")
+						.attr("text-anchor", "right")
+						.attr('class', 'name')
+						.text(String);
+
+					chart.selectAll("rect")
+						.on('mouseover', tip.show)
+						.on('mouseout', tip.hide)
+						.on('click', function (d){chart.html('<a href="index.html"></a>');})
+						;
+
+};
+$( document ).ready(function() {
+    getRequest(callbackResponse);
+    console.log("running");
+
+
+
+});
+
+				</script>
+
+			</div>
+
+			<div id="footer"> Footer Goes Here </div>
+		</div>
+	</body>
+</html>
