@@ -15,7 +15,7 @@
 <html>
 	<head>
 		<title>SBuilJobs</title>
-		<link rel="stylesheet" type="text/css" href="{% static '/static/style/style.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static '/static/css/style.css' %}">
 		<script src="http://d3js.org/d3.v3.min.js"></script>
         <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -43,18 +43,18 @@
                     data = [];
                     names = [];
 
-var getRequest = function(callbackResponse) {
-    $.ajax({
-        type: "GET",
-        url: "/api/buildjob",
-        cache: false,
+                    var getRequest = function(callbackResponse) {
+                        $.ajax({
+                            type: "GET",
+                            url: "/api/get_build_job_collection",
+                            cache: false,
 
-        success: function (response) {
-            console.log(response);
-            callbackResponse(response);
-        }
-    });
-};
+                            success: function (response) {
+                                console.log(response);
+                                callbackResponse(response);
+                            }
+                        });
+                    };
 
 var callbackResponse = function(response){
 {#        Process data returned from Response #}
