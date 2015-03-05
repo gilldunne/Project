@@ -37,16 +37,17 @@
 {#			</div>#}
 
 			<div id="content">
-				<h3>Number of Buildjobs per Team</h3>
+				<h3>Number of Buildjobs per Component</h3>
                 <svg class="chart"></svg>
 				<script>
                     data = [];
                     names = [];
 
-                    var getRequest = function(callbackResponse) {
+                    var getRequest = function(params, callbackResponse) {
                         $.ajax({
                             type: "GET",
-                            url: "/api/get_build_job_collection",
+                            data: params,
+                            url: "/api/get_build_job_collection_component_names",
                             cache: false,
 
                             success: function (response) {
@@ -144,21 +145,13 @@ var callbackResponse = function(response){
 
 					chart.selectAll("rect")
 						.on('mouseover', tip.show)
-						.on('mouseout', tip.hide)
-						.on('click', function (d,i){
-                                console.log(names[i]);
-                                window.location.href='component_graph?teamName='+names[i];
-
-                            })
-						;
+						.on('mouseout', tip.hide);
 
 };
 $( document ).ready(function() {
-    getRequest(callbackResponse);
-    console.log("running");
-
-
-
+{#    var params = "teamName=Cloud Platform Team";#}
+    var params= window.location.search.substring(1);
+    getRequest(params, callbackResponse);
 });
 
 				</script>

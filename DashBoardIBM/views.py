@@ -32,6 +32,9 @@ from django.shortcuts import render_to_response
 # Get all the build jobs per domain name
 @api_view(['GET', ])
 def get_build_job_collection(request):
+    """
+    get_build_job_collection
+    """
     # List of build jobs for a given Team
     db = DBWrapper()
     db.db_open()
@@ -39,6 +42,19 @@ def get_build_job_collection(request):
     db.db_close()
     return Response(data)
 
+
+@api_view(['GET', ])
+def get_build_job_collection_component_names(request):
+    # List of build jobs for a given Team
+    """
+    get_build_job_collection_component_names
+    """
+    team_name = request.GET.get("teamName")
+    db = DBWrapper()
+    db.db_open()
+    data = db.get_build_job_collection_component_names(team_name)
+    db.db_close()
+    return Response(data)
 
 # Get all the users per domain name
 # @api_view(['GET', ])

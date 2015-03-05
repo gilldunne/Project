@@ -28,7 +28,7 @@ class DBWrapper:
     # Use build_job collection from TestEasyJLV
     def get_build_job_collection(self):
         c = self.db.buildjob
-        list_of_teamName = self.get_team_names()
+        list_of_teamName = self.get_distinct_list("teamName", None)
         team_list = []
         for team in list_of_teamName:
             list_of_buildjobs = {}
@@ -39,11 +39,26 @@ class DBWrapper:
         return team_list
 
 
-    # Use build_job collection from TestEasyJLV
-    def get_team_names(self):
+    def get_build_job_collection_component_names(self, teamName):
         c = self.db.buildjob
-        list_of_team_names = c.find().distinct("teamName")
-        return list_of_team_names
+        distinct_query = {"teamName": teamName}
+        list_of_componentName = self.get_distinct_list("componentName", distinct_query)
+        team_list = []
+        for component in list_of_componentName:
+            list_of_buildjobs = {}
+            query = c.find({"componentName":str(component)}).distinct("name")
+            length = len(query)
+            list_of_buildjobs.update({"name": component, "buildjob":length})
+            team_list.append(list_of_buildjobs)
+        return team_list
+
+
+    def get_distinct_list(self, collection_key, query):
+        c = self.db.buildjob
+        # TODO - Test query where query equals none
+        list_of_distinct_names = c.find(query).distinct(collection_key)
+        return list_of_distinct_names
+
 
     # Get the user and the servers they are connected to
     def get_user_data(self):
