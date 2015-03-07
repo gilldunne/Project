@@ -1,13 +1,13 @@
-body
+body 
 {
-	background: #ffffff;
-	margin: 0;
+	background: #ffffff; 
+	margin: 0; 
 	padding: 0;
-}
-a
+} 
+a 
 {
 	color: #2b2bf6;
-}
+} 
 .chart {
   background: #b0e0f8;
   margin: 5px;
@@ -26,7 +26,7 @@ a
   stroke: #fff;
   stroke-opacity: .5;
   shape-rendering: crispEdges;
-}
+}  
 .chart rect:hover {
   fill: #64707D;
 }
@@ -74,29 +74,29 @@ a
 			  top: 100%;
 			  left: 0;
 			}
-#container
+#container 
 {
 	width: 900px;
 	margin: 0 auto;
-}
-#header
+}           
+#header 
 {
-	width: 900px;
-	height: 30px;
-	margin: 0 auto;
-	padding-top: 0;
+	width: 900px; 	
+	height: 30px; 	
+	margin: 0 auto; 
+	padding-top: 0; 
 	background: #ccc;
-}
-#sidebar
+}           
+#sidebar 
 {
-	width: 140px;
-	height: 400px;
-	margin: 0;
-	padding: 15;
-	border: 0;
+	width: 140px; 
+	height: 400px; 	
+	margin: 0; 
+	padding: 15; 
+	border: 0; 
 	float: left;
 	background: #fff;
-}
+}  
 #sidebar> li {
 	display: block;
 }
@@ -110,26 +110,26 @@ a
 
 #sidebar> li > a:hover {
 	background: #E9c620;
-}
-#content
+}         
+#content 
 {
-	width: 700px;
-	height: 400px;
-	margin: 0 auto;
-	padding: 15;
-	border: 0;
-	float: left;
-
-}
+	width: 700px; 
+	height: 400px; 	
+	margin: 0 auto; 
+	padding: 15; 
+	border: 0; 
+	float: left; 
+	
+}           
 #footer
 {
-	width: 900px;
-	height: 70px;
-	margin: 0 auto;
-	padding: 0;
-	border: 0;
-	float: left;
-	background: #fff;
+	width: 900px; 	
+	height: 70px; 	
+	margin: 0 auto; 
+	padding: 0; 
+	border: 0; 
+	float: left; 
+	background: #fff; 
 	clear:both;
-}
+}                            
 

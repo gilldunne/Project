@@ -1,7 +1,10 @@
+import datetime
 from pymongo import MongoClient
-
+from datetime import timedelta, datetime
 
 # remove this
+import sys
+
 client = MongoClient()
 db = client.TestEasyJLV
 
@@ -67,4 +70,37 @@ class DBWrapper:
     def get_end_dates(self):
         pass
 
+    def get_active_inactive_per_team(self, teamName):
+        c = self.db.buildjob
+        distinct_query = {"teamName": teamName}
+        list_of_componentName = self.get_distinct_list("componentName", distinct_query)
+        team_list = [] # TODO - Rename this bad name
+        for component in list_of_componentName:
+            list_of_data = {} # TODO - Rename this bad name
+            list_of_distinct_buildjobs = c.find({"componentName":str(component)}).distinct("name")
+            freq = { "InUse":0, "NotInUse":0 } # create obj
 
+            # get the last date of a give buildjob
+            for buildjob in list_of_distinct_buildjobs:
+                buildjob_date = c.find({"name":str(buildjob)},{"endDate":1}).sort("endDate",-1).limit(1)
+                print >> sys.stderr, buildjob_date[0]["endDate"]
+
+                # decide on active or inactive
+                if self.is_inactive(buildjob_date[0]["endDate"]):
+                    new_inuse = freq["InUse"] +1
+                    freq["InUse"] = new_inuse
+                else:
+                    new_notinuse = freq["NotInUse"] +1
+                    freq["NotInUse"] = new_notinuse
+
+            list_of_data.update({"name": component, "freq":freq})
+            team_list.append(list_of_data)
+
+        return team_list
+
+    def is_inactive(self, buildjob_date):
+        last_seven_days = datetime.today() - timedelta(days=7)
+        print >> sys.stderr, buildjob_date
+        if buildjob_date >= last_seven_days:
+            return True
+        return False

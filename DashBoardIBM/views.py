@@ -44,6 +44,20 @@ def get_build_job_collection(request):
 
 
 @api_view(['GET', ])
+def get_active_inactive_per_team(request):
+    # List of build jobs for a given Team
+    """
+    get_active_inactive_per_team
+    """
+    team_name =  "Connections Team"#request.GET.get("teamName")
+    db = DBWrapper()
+    db.db_open()
+    data = db.get_active_inactive_per_team(team_name)
+    db.db_close()
+    return Response(data)
+
+
+@api_view(['GET', ])
 def get_build_job_collection_component_names(request):
     # List of build jobs for a given Team
     """
