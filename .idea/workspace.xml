@@ -43,18 +43,18 @@
       <file leaf-file-name="buildjobs.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/buildjobs.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.076923" vertical-offset="0" max-vertical-offset="2992">
+            <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="2992">
               <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="96" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="componentBuildjobs.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="componentBuildjobs.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/componentBuildjobs.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.653846" vertical-offset="2315" max-vertical-offset="2873">
-              <caret line="154" column="3" selection-start-line="150" selection-start-column="0" selection-end-line="154" selection-end-column="3" />
+            <state vertical-scroll-proportion="-0.23546511" vertical-offset="744" max-vertical-offset="2873">
+              <caret line="39" column="49" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -75,24 +75,26 @@
       <file leaf-file-name="db_wrapper.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DashBoardIBM/db_wrapper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="130" max-vertical-offset="1275">
-              <caret line="58" column="55" selection-start-line="58" selection-start-column="55" selection-end-line="58" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="856" max-vertical-offset="1411">
+              <caret line="96" column="42" selection-start-line="96" selection-start-column="42" selection-end-line="96" selection-end-column="42" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
                 <element signature="e#309#323#0" expanded="false" />
                 <element signature="e#395#414#0" expanded="false" />
                 <element signature="e#509#634#0" expanded="false" />
-                <element signature="e#2217#3445#0" expanded="false" />
-                <element signature="e#3497#3641#0" expanded="false" />
+                <element signature="e#732#1161#0" expanded="false" />
+                <element signature="e#1238#1760#0" expanded="false" />
+                <element signature="e#2106#2110#0" expanded="false" />
+                <element signature="e#2149#2153#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activeinactive.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="activeinactive.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/activeinactive.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.107750475" vertical-offset="3683" max-vertical-offset="4386">
+            <state vertical-scroll-proportion="-6.5384617" vertical-offset="3570" max-vertical-offset="4386">
               <caret line="220" column="29" selection-start-line="220" selection-start-column="29" selection-end-line="220" selection-end-column="29" />
               <folding />
             </state>
@@ -121,10 +123,10 @@
         <option value="$PROJECT_DIR$/static/css/style.css" />
         <option value="$PROJECT_DIR$/Dashboard/urls.py" />
         <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/templates/componentBuildjobs.html" />
-        <option value="$PROJECT_DIR$/DashBoardIBM/db_wrapper.py" />
         <option value="$PROJECT_DIR$/DashBoardIBM/views.py" />
         <option value="$PROJECT_DIR$/templates/activeinactive.html" />
+        <option value="$PROJECT_DIR$/DashBoardIBM/db_wrapper.py" />
+        <option value="$PROJECT_DIR$/templates/componentBuildjobs.html" />
       </list>
     </option>
   </component>
@@ -132,10 +134,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="width" value="820" />
+    <option name="height" value="728" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -527,18 +527,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <frame x="0" y="0" width="820" height="728" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31045753" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3104027" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284974" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22692889" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48796147" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -584,8 +584,10 @@
             <element signature="e#309#323#0" expanded="false" />
             <element signature="e#395#414#0" expanded="false" />
             <element signature="e#509#634#0" expanded="false" />
-            <element signature="e#2217#3445#0" expanded="false" />
-            <element signature="e#3497#3641#0" expanded="false" />
+            <element signature="e#732#1161#0" expanded="false" />
+            <element signature="e#1238#1760#0" expanded="false" />
+            <element signature="e#2106#2110#0" expanded="false" />
+            <element signature="e#2149#2153#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -635,8 +637,10 @@
             <element signature="e#309#323#0" expanded="false" />
             <element signature="e#395#414#0" expanded="false" />
             <element signature="e#509#634#0" expanded="false" />
-            <element signature="e#2217#3445#0" expanded="false" />
-            <element signature="e#3497#3641#0" expanded="false" />
+            <element signature="e#732#1161#0" expanded="false" />
+            <element signature="e#1238#1760#0" expanded="false" />
+            <element signature="e#2106#2110#0" expanded="false" />
+            <element signature="e#2149#2153#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -686,8 +690,10 @@
             <element signature="e#309#323#0" expanded="false" />
             <element signature="e#395#414#0" expanded="false" />
             <element signature="e#509#634#0" expanded="false" />
-            <element signature="e#2217#3445#0" expanded="false" />
-            <element signature="e#3497#3641#0" expanded="false" />
+            <element signature="e#732#1161#0" expanded="false" />
+            <element signature="e#1238#1760#0" expanded="false" />
+            <element signature="e#2106#2110#0" expanded="false" />
+            <element signature="e#2149#2153#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -743,8 +749,10 @@
             <element signature="e#309#323#0" expanded="false" />
             <element signature="e#395#414#0" expanded="false" />
             <element signature="e#509#634#0" expanded="false" />
-            <element signature="e#2217#3445#0" expanded="false" />
-            <element signature="e#3497#3641#0" expanded="false" />
+            <element signature="e#732#1161#0" expanded="false" />
+            <element signature="e#1238#1760#0" expanded="false" />
+            <element signature="e#2106#2110#0" expanded="false" />
+            <element signature="e#2149#2153#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -800,8 +808,10 @@
             <element signature="e#309#323#0" expanded="false" />
             <element signature="e#395#414#0" expanded="false" />
             <element signature="e#509#634#0" expanded="false" />
-            <element signature="e#2217#3445#0" expanded="false" />
-            <element signature="e#3497#3641#0" expanded="false" />
+            <element signature="e#732#1161#0" expanded="false" />
+            <element signature="e#1238#1760#0" expanded="false" />
+            <element signature="e#2106#2110#0" expanded="false" />
+            <element signature="e#2149#2153#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -857,8 +867,10 @@
             <element signature="e#309#323#0" expanded="false" />
             <element signature="e#395#414#0" expanded="false" />
             <element signature="e#509#634#0" expanded="false" />
-            <element signature="e#2217#3445#0" expanded="false" />
-            <element signature="e#3497#3641#0" expanded="false" />
+            <element signature="e#732#1161#0" expanded="false" />
+            <element signature="e#1238#1760#0" expanded="false" />
+            <element signature="e#2106#2110#0" expanded="false" />
+            <element signature="e#2149#2153#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -914,8 +926,10 @@
             <element signature="e#309#323#0" expanded="false" />
             <element signature="e#395#414#0" expanded="false" />
             <element signature="e#509#634#0" expanded="false" />
-            <element signature="e#2217#3445#0" expanded="false" />
-            <element signature="e#3497#3641#0" expanded="false" />
+            <element signature="e#732#1161#0" expanded="false" />
+            <element signature="e#1238#1760#0" expanded="false" />
+            <element signature="e#2106#2110#0" expanded="false" />
+            <element signature="e#2149#2153#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1006,21 +1020,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DashBoardIBM/db_wrapper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="130" max-vertical-offset="1275">
-          <caret line="58" column="55" selection-start-line="58" selection-start-column="55" selection-end-line="58" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <element signature="e#309#323#0" expanded="false" />
-            <element signature="e#395#414#0" expanded="false" />
-            <element signature="e#509#634#0" expanded="false" />
-            <element signature="e#2217#3445#0" expanded="false" />
-            <element signature="e#3497#3641#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DashBoardIBM/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="640" max-vertical-offset="1598">
@@ -1031,26 +1030,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/componentBuildjobs.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.653846" vertical-offset="2315" max-vertical-offset="2873">
-          <caret line="154" column="3" selection-start-line="150" selection-start-column="0" selection-end-line="154" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/buildjobs.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.076923" vertical-offset="0" max-vertical-offset="2992">
+        <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="2992">
           <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="96" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/DashBoardIBM/db_wrapper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="856" max-vertical-offset="1411">
+          <caret line="96" column="42" selection-start-line="96" selection-start-column="42" selection-end-line="96" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#309#323#0" expanded="false" />
+            <element signature="e#395#414#0" expanded="false" />
+            <element signature="e#509#634#0" expanded="false" />
+            <element signature="e#732#1161#0" expanded="false" />
+            <element signature="e#1238#1760#0" expanded="false" />
+            <element signature="e#2106#2110#0" expanded="false" />
+            <element signature="e#2149#2153#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/activeinactive.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.107750475" vertical-offset="3683" max-vertical-offset="4386">
+        <state vertical-scroll-proportion="-6.5384617" vertical-offset="3570" max-vertical-offset="4386">
           <caret line="220" column="29" selection-start-line="220" selection-start-column="29" selection-end-line="220" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/componentBuildjobs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.23546511" vertical-offset="744" max-vertical-offset="2873">
+          <caret line="39" column="49" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="49" />
           <folding />
         </state>
       </provider>

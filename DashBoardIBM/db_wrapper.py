@@ -100,6 +100,7 @@ class DBWrapper:
 
     def is_inactive(self, buildjob_date):
         last_seven_days = datetime.today() - timedelta(days=7)
+        print >> sys.stderr, buildjob_date
         if buildjob_date >= last_seven_days:
             return True
         return False
