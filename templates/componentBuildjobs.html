@@ -27,14 +27,11 @@
 		<div id="container" >
 			<div id="header"> <center>This is the IBM header from Dashboard</center></div>
 
-{#			<div id="sidebar">#}
-{#				<ul id="sidebar">#}
-{#					<li><a href="#.html" class ="button">Home</a></li>#}
-{#					<li><a href="#.html" class ="button">Buildjobs per Team</a></li>#}
-{#					<li><a href="#.html" class ="button">Graph 2</a></li>#}
-{#					<li><a href="#.html" class ="button">Graph 3</a></li>#}
-{#				</ul>#}
-{#			</div>#}
+			<div id="sidebar">
+				<ul id="sidebar">
+					<li><a href="/" class ="button">Home</a></li>
+				</ul>
+			</div>
 
 			<div id="content">
 				<h3>Number of Buildjobs per Component</h3>
@@ -57,22 +54,18 @@
                         });
                     };
 
-var callbackResponse = function(response){
-{#        Process data returned from Response #}
+                    var callbackResponse = function(response){
+                    {#        Process data returned from Response #}
 
+                        $.each(response,function(i,val){
+                            data[i] = val.buildjob;
+                            names[i] = val.name;
+                        });
 
-    $.each(response,function(i,val){
-        data[i] = val.buildjob;
-        names[i] = val.name;
-    });
-//add d3 here
-{#   $.each(data,function(i,val){#}
-{#        console.log(val);#}
-{#    });#}
     					var tip = d3.tip()
-					.attr('class', 'd3-tip')
-					.offset([-10, 0])
-					.html(function(d) {
+                        .attr('class', 'd3-tip')
+                        .offset([-10, 0])
+                        .html(function(d) {
 							return "<strong>Total:</strong> <span style='color:black'>" + d + "</span>";
 						});
 
