@@ -42,7 +42,6 @@ class DBWrapper:
             team_list.append(list_of_buildjobs)
         return team_list
 
-
     def get_build_job_collection_component_names(self, teamName):
         c = self.db.buildjob
         distinct_query = {"teamName": teamName}
@@ -56,13 +55,11 @@ class DBWrapper:
             team_list.append(list_of_buildjobs)
         return team_list
 
-
     def get_distinct_list(self, collection_key, query):
         c = self.db.buildjob
         # TODO - Test query where query equals none
         list_of_distinct_names = c.find(query).distinct(collection_key)
         return list_of_distinct_names
-
 
     # Get the user and the servers they are connected to
     def get_user_data(self):

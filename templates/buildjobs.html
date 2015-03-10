@@ -56,115 +56,93 @@
                         });
                     };
 
-var callbackResponse = function(response){
-{#        Process data returned from Response #}
+                    var callbackResponse = function(response){
+                        $.each(response,function(i,val){
+                            data[i] = val.buildjob;
+                            names[i] = val.name;
+                        });
 
+                        var tip = d3.tip()
+                                .attr('class', 'd3-tip')
+                                .offset([-10, 0])
+                                .html(function(d) {
+                                return "<strong>Total:</strong> <span style='color:black'>" + d + "</span>";
+                        });
 
-    $.each(response,function(i,val){
-        data[i] = val.buildjob;
-        names[i] = val.name;
-    });
-//add d3 here
-{#   $.each(data,function(i,val){#}
-{#        console.log(val);#}
-{#    });#}
-    					var tip = d3.tip()
-					.attr('class', 'd3-tip')
-					.offset([-10, 0])
-					.html(function(d) {
-							return "<strong>Total:</strong> <span style='color:black'>" + d + "</span>";
-						});
+                        var margin = {top: 30, right: 20, bottom: 20, left: 150},
+                            width = 520,
+                            barHeight = 20,
+                            height = barHeight * data.length;
 
+                        var x = d3.scale.linear()
+                            .domain([0, d3.max(data)])
+                            .range([0, width]);
 
-					var margin = {top: 30, right: 20, bottom: 20, left: 150},
-						width = 520,
-						barHeight = 20,
-						height = barHeight * data.length;
+                        var y = d3.scale.ordinal()
+                            .domain(names)
+                            .rangeBands([0, height]);
 
-					var x = d3.scale.linear()
-						.domain([0, d3.max(data)])
-						.range([0, width]);
+                        var y1 = d3.scale.ordinal()
+                            .domain(data)
+                            .rangeBands([0, height]);
 
-					var y = d3.scale.ordinal()
-						.domain(names)
-						.rangeBands([0, height]);
+                        var xAxis = d3.svg.axis()
+                            .scale(x)
+                            .orient("top")
+                            .tickSize(-height);
 
-					var y1 = d3.scale.ordinal()
-						.domain(data)
-						.rangeBands([0, height]);
+                        var chart = d3.select(".chart")
+                            .attr("width", width + margin.left + margin.right)
+                            .attr("height", height + margin.top + margin.bottom)
+                            .append("g")
+                            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-					var xAxis = d3.svg.axis()
-						.scale(x)
-						.orient("top")
-						.tickSize(-height);
+                        chart.call(tip);
 
-					var chart = d3.select(".chart")
-						.attr("width", width + margin.left + margin.right)
-						.attr("height", height + margin.top + margin.bottom)
-					    .append("g")
-						.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+                        chart.append("g")
+                            .attr("fill", "steelblue")
+                            .attr("class", "bars")
+                          .selectAll("rect")
+                            .data(data)
+                          .enter().append("rect")
+                            .attr("y", function(d, i) { return i * barHeight; })
+                            .attr("height", barHeight - 1)
+                            .attr("width", x);
 
-					chart.call(tip);
+                        chart.append("g")
+                            .attr("class", "axis")
+                            .call(xAxis)
+                          .select(".tick line")
+                            .style("stroke", "#000");
 
-					chart.append("g")
-						.attr("fill", "steelblue")
-						.attr("class", "bars")
-					  .selectAll("rect")
-						.data(data)
-					  .enter().append("rect")
-						.attr("y", function(d, i) { return i * barHeight; })
-						.attr("height", barHeight - 1)
-						.attr("width", x);
+                        chart.selectAll("text.name")
+                            .data(names)
+                            .enter().append("text")
+                            .attr("x", -145)
+                            .attr("y", function(d){ return y(d) + barHeight/2; } )
+                            .attr("dy", ".36em")
+                            .attr("text-anchor", "right")
+                            .attr('class', 'name')
+                            .text(String);
 
-					chart.append("g")
-						.attr("class", "axis")
-						.call(xAxis)
-					  .select(".tick line")
-						.style("stroke", "#000");
+                        chart.selectAll("rect")
+                            .on('mouseover', tip.show)
+                            .on('mouseout', tip.hide)
+                            .on('click', function (d,i){
+                                    console.log(names[i]);
+                                    window.location.href='component_graph?teamName='+names[i];
 
-{#					chart.selectAll("text.data")#}
-{#						.data(data)#}
-{#						.enter().append("text")#}
-{#						.attr("x", x)#}
-{#						.attr("y", function(d){ return y1(d) + y1.rangeBand()/2; } )#}
-{#						.attr("dx", -5)#}
-{#						.attr("dy", ".36em")#}
-{#						.attr("text-anchor", "end")#}
-{#						.text(String);#}
+                                });
+                    };
 
-					chart.selectAll("text.name")
-						.data(names)
-						.enter().append("text")
-						.attr("x", -145)
-						.attr("y", function(d){ return y(d) + barHeight/2; } )
-						.attr("dy", ".36em")
-						.attr("text-anchor", "right")
-						.attr('class', 'name')
-						.text(String);
-
-					chart.selectAll("rect")
-						.on('mouseover', tip.show)
-						.on('mouseout', tip.hide)
-						.on('click', function (d,i){
-                                console.log(names[i]);
-                                window.location.href='component_graph?teamName='+names[i];
-
-                            })
-						;
-
-};
-$( document ).ready(function() {
-    getRequest(callbackResponse);
-    console.log("running");
-
-
-
-});
+                    $( document ).ready(function() {
+                        getRequest(callbackResponse);
+                        console.log("running");
+                    });
 
 				</script>
 
 			</div>
-
 			<div id="footer"> Footer Goes Here </div>
 		</div>
 	</body>
