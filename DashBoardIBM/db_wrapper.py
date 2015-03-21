@@ -93,7 +93,6 @@ class DBWrapper:
 
             list_of_data.update({"name": component, "freq":freq})
             team_list.append(list_of_data)
-
         return team_list
 
     def is_inactive(self, buildjob_date):
@@ -102,3 +101,18 @@ class DBWrapper:
         if buildjob_date >= last_seven_days:
             return True
         return False
+
+    #TODO - Add in the number of servers
+
+    def get_build_job_usage(self, componentName):
+        c = self.db.buildjob
+        distinct_query = {"componentName": componentName}
+        sub_teams = []
+        list_of_subTeam = self.get_distinct_list("subTeam", distinct_query)
+        for sub_team in list_of_subTeam:
+            list_of_buildjobs = {}
+            query = c.find({"subTeam":str(sub_team)}).distinct("name")
+            length = len(query)
+            list_of_buildjobs.update({"name": sub_team, "buildjob":length})
+            sub_teams.append(list_of_buildjobs)
+        return sub_teams

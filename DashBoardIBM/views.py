@@ -45,3 +45,13 @@ def get_build_job_collection_component_names(request):
     data = db.get_build_job_collection_component_names(team_name)
     db.db_close()
     return Response(data)
+
+
+@api_view(['GET', ])
+def get_build_job_usage_sub_teams(request):
+    component_name = "Connections" #request.GET.get("componentName")
+    db = DBWrapper()
+    db.db_open()
+    data = db.get_build_job_usage(component_name)
+    db.db_close()
+    return Response(data)
