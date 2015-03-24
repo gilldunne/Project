@@ -113,6 +113,6 @@ class DBWrapper:
             list_of_buildjobs = {}
             query = c.find({"subTeam":str(sub_team)}).distinct("name")
             length = len(query)
-            list_of_buildjobs.update({"name": sub_team, "buildjob":length})
+            list_of_buildjobs.update({"count":length, "status": sub_team})
             sub_teams.append(list_of_buildjobs)
         return sub_teams
