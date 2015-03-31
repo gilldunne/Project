@@ -1,13 +1,20 @@
 body
 {
-	background: #ffffff; 
+	/*background: #ffffff; */
 	margin: 0; 
 	padding: 0;
 } 
 a 
 {
 	color: #2b2bf6;
-} 
+}
+.navContainer {
+    float: left;
+}
+.mainContainer {
+    float: right;
+}
+
 .chart {
   background: #E0E0FF;
   margin: 5px;

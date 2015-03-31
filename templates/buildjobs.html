@@ -15,7 +15,10 @@
 <html>
 	<head>
 		<title>BuilJobs</title>
-		<link rel="stylesheet" type="text/css" href="{% static '/static/css/style.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static '/static/customCSS/style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static '/static/css/base/core.css' %}">
+{#        <link rel="stylesheet" type="text/css" href="{% static '/static/css/defaultTheme/defaultTheme.css' %}">#}
+        <link rel="stylesheet" type="text/css" href="{% static '/static/css/base/components/header.css' %}">
 		<script src="http://d3js.org/d3.v3.min.js"></script>
         <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -23,127 +26,166 @@
 
 	</head>
 	<body>
+        <div id="container" >
 
-		<div id="container" >
-			<div id="header"> <center>This is the IBM header from Dashboard</center></div>
+            <div class="lotusui30">
 
-{#			<div id="sidebar">#}
-{#				<ul id="sidebar">#}
-{#					<li><a href="#.html" class ="button">Home</a></li>#}
-{#					<li><a href="#.html" class ="button">Buildjobs per Team</a></li>#}
-{#					<li><a href="#.html" class ="button">Graph 2</a></li>#}
-{#					<li><a href="#.html" class ="button">Graph 3</a></li>#}
-{#				</ul>#}
-{#			</div>#}
+                <div class="lotusBanner"></div>
 
-			<div id="content">
-				<h3>Number of Buildjobs per Team</h3>
-                <svg class="chart"></svg>
-				<script>
-                    data = [];
-                    names = [];
+                <div class="lotusTitleBar2">
+                    <div class="lotusInner">
+                        <img src="/static/customImages/ibmLogoBlack30.png">
+                    </div>
+                </div>
 
-                    var getRequest = function(callbackResponse) {
-                        $.ajax({
-                            type: "GET",
-                            url: "/api/get_build_job_collection",
-                            cache: false,
+                <div class="navContainer">
+                    <div class="lotusMenu">
+                        <div class="lotusMenuSection">
+                            <h1 class="lotusHeading"> By Team </h1>
+                        </div>
+                        <div class="lotusTwistyOpenMenu">
+                            <ul>
+                                <li><a href="#.html" class ="button">Connections Team</a></li>
+                                <ul class="lotusMenuSubsection">
+                                    <li><a href="#.html" class ="button">Connections</a></li>
+                                    <li><a href="#.html" class ="button">Social Contacts</a></li>
+                                </ul>
+                                <li><a href="#.html" class ="button">Cloud Platfrom Team</a></li>
+                                <ul class="lotusMenuSubsection">
+                                    <li><a href="#.html" class ="button">BSS Core</a></li>
+                                    <li><a href="#.html" class ="button">BSS UI</a></li>
+                                </ul>
+                                <li><a href="#.html" class ="button">IBM Docs Team</a></li>
+                                <ul class="lotusMenuSubsection">
+                                    <li><a href="#.html" class ="button">Docs Editor</a></li>
+                                    <li><a href="#.html" class ="button">Docs Viewer</a></li>
+                                </ul>
+                                <li><a href="#.html" class ="button">Sametime Team</a></li>
+                                <ul class="lotusMenuSubsection">
+                                    <li><a href="#.html" class ="button">WebChat</a></li>
+                                    <li><a href="#.html" class ="button">Sametime</a></li>
+                                    <li><a href="#.html" class ="button">Sametime PC Audio</a></li>
+                                    <li><a href="#.html" class ="button">Sametime Meetings</a></li>
+                                </ul>
+                                <li><a href="#.html" class ="button">Unyte Team</a></li>
+                                <ul class="lotusMenuSubsection">
+                                    <li><a href="#.html" class ="button">Unyte Meetings</a></li>
+                                    <li><a href="#.html" class ="button">Unyte Events</a></li>
+                                </ul>
+                                <li><a href="#.html" class ="button">Foundations Team</a></li>
+                                <ul class="lotusMenuSubsection">
+                                    <li><a href="#.html" class ="button">Foundations</a></li>
+                                </ul>
+                            </ul>
+                        </div> <!-- lotusTwistyOpenMenu end -->
+                    </div>
+                </div>
+                <div class="mainContainer">
+                    <h3>Number of Buildjobs per Team</h3>
+                    <svg class="chart"></svg>
+                    <script>
+                        data = [];
+                        names = [];
 
-                            success: function (response) {
-                                console.log(response);
-                                callbackResponse(response);
-                            }
+                        var getRequest = function(callbackResponse) {
+                            $.ajax({
+                                type: "GET",
+                                url: "/api/get_build_job_collection",
+                                cache: false,
+
+                                success: function (response) {
+                                    console.log(response);
+                                    callbackResponse(response);
+                                }
+                            });
+                        };
+
+                        var callbackResponse = function(response){
+                            $.each(response,function(i,val){
+                                data[i] = val.buildjob;
+                                names[i] = val.name;
+                            });
+
+                            var tip = d3.tip()
+                                    .attr('class', 'd3-tip')
+                                    .offset([-10, 0])
+                                    .html(function(d) {
+                                    return "<strong>Total:</strong> <span style='color:black'>" + d + "</span>";
+                            });
+
+                            var margin = {top: 30, right: 20, bottom: 20, left: 150},
+                                width = 520,
+                                barHeight = 20,
+                                height = barHeight * data.length;
+
+                            var x = d3.scale.linear()
+                                .domain([0, d3.max(data)])
+                                .range([0, width]);
+
+                            var y = d3.scale.ordinal()
+                                .domain(names)
+                                .rangeBands([0, height]);
+
+                            var y1 = d3.scale.ordinal()
+                                .domain(data)
+                                .rangeBands([0, height]);
+
+                            var xAxis = d3.svg.axis()
+                                .scale(x)
+                                .orient("top")
+                                .tickSize(-height);
+
+                            var chart = d3.select(".chart")
+                                .attr("width", width + margin.left + margin.right)
+                                .attr("height", height + margin.top + margin.bottom)
+                                .append("g")
+                                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+                            chart.call(tip);
+
+                            chart.append("g")
+                                .attr("fill", "steelblue")
+                                .attr("class", "bars")
+                              .selectAll("rect")
+                                .data(data)
+                              .enter().append("rect")
+                                .attr("y", function(d, i) { return i * barHeight; })
+                                .attr("height", barHeight - 1)
+                                .attr("width", x);
+
+                            chart.append("g")
+                                .attr("class", "axis")
+                                .call(xAxis)
+                              .select(".tick line")
+                                .style("stroke", "#000");
+
+                            chart.selectAll("text.name")
+                                .data(names)
+                                .enter().append("text")
+                                .attr("x", -145)
+                                .attr("y", function(d){ return y(d) + barHeight/2; } )
+                                .attr("dy", ".36em")
+                                .attr("text-anchor", "right")
+                                .attr('class', 'name')
+                                .text(String);
+
+                            chart.selectAll("rect")
+                                .on('mouseover', tip.show)
+                                .on('mouseout', tip.hide)
+                                .on('click', function (d,i){
+                                        console.log(names[i]);
+                                        window.location.href='component_graph?teamName='+names[i];
+
+                                    });
+                        };
+
+                        $( document ).ready(function() {
+                            getRequest(callbackResponse);
+                            console.log("running");
                         });
-                    };
-
-                    var callbackResponse = function(response){
-                        $.each(response,function(i,val){
-                            data[i] = val.buildjob;
-                            names[i] = val.name;
-                        });
-
-                        var tip = d3.tip()
-                                .attr('class', 'd3-tip')
-                                .offset([-10, 0])
-                                .html(function(d) {
-                                return "<strong>Total:</strong> <span style='color:black'>" + d + "</span>";
-                        });
-
-                        var margin = {top: 30, right: 20, bottom: 20, left: 150},
-                            width = 520,
-                            barHeight = 20,
-                            height = barHeight * data.length;
-
-                        var x = d3.scale.linear()
-                            .domain([0, d3.max(data)])
-                            .range([0, width]);
-
-                        var y = d3.scale.ordinal()
-                            .domain(names)
-                            .rangeBands([0, height]);
-
-                        var y1 = d3.scale.ordinal()
-                            .domain(data)
-                            .rangeBands([0, height]);
-
-                        var xAxis = d3.svg.axis()
-                            .scale(x)
-                            .orient("top")
-                            .tickSize(-height);
-
-                        var chart = d3.select(".chart")
-                            .attr("width", width + margin.left + margin.right)
-                            .attr("height", height + margin.top + margin.bottom)
-                            .append("g")
-                            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-                        chart.call(tip);
-
-                        chart.append("g")
-                            .attr("fill", "steelblue")
-                            .attr("class", "bars")
-                          .selectAll("rect")
-                            .data(data)
-                          .enter().append("rect")
-                            .attr("y", function(d, i) { return i * barHeight; })
-                            .attr("height", barHeight - 1)
-                            .attr("width", x);
-
-                        chart.append("g")
-                            .attr("class", "axis")
-                            .call(xAxis)
-                          .select(".tick line")
-                            .style("stroke", "#000");
-
-                        chart.selectAll("text.name")
-                            .data(names)
-                            .enter().append("text")
-                            .attr("x", -145)
-                            .attr("y", function(d){ return y(d) + barHeight/2; } )
-                            .attr("dy", ".36em")
-                            .attr("text-anchor", "right")
-                            .attr('class', 'name')
-                            .text(String);
-
-                        chart.selectAll("rect")
-                            .on('mouseover', tip.show)
-                            .on('mouseout', tip.hide)
-                            .on('click', function (d,i){
-                                    console.log(names[i]);
-                                    window.location.href='component_graph?teamName='+names[i];
-
-                                });
-                    };
-
-                    $( document ).ready(function() {
-                        getRequest(callbackResponse);
-                        console.log("running");
-                    });
-
-				</script>
-
-			</div>
-
-		</div>
+                    </script>
+                </div>
+            </div> <!-- lotusui30 -->
+		</div> <!-- Container End -->
 	</body>
 </html>
