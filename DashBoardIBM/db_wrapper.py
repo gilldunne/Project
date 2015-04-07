@@ -2,13 +2,8 @@ import datetime
 from pymongo import MongoClient
 from datetime import timedelta, datetime
 
-
-# remove this
-import sys
-
 client = MongoClient()
 db = client.TestEasyJLV
-
 
 class DBWrapper:
 
@@ -61,13 +56,6 @@ class DBWrapper:
         list_of_distinct_names = c.find(query).distinct(collection_key)
         return list_of_distinct_names
 
-    # Get the user and the servers they are connected to
-    def get_user_data(self):
-        pass
-
-    def get_end_dates(self):
-        pass
-
     def get_active_inactive_per_team(self, teamName):
         c = self.db.buildjob
         distinct_query = {"teamName": teamName}
@@ -81,7 +69,6 @@ class DBWrapper:
             # get the last date of a give buildjob
             for buildjob in list_of_distinct_buildjobs:
                 buildjob_date = c.find({"name":str(buildjob)},{"endDate":1}).sort("endDate",-1).limit(1)
-                print >> sys.stderr, buildjob_date[0]["endDate"]
 
                 # decide on active or inactive
                 if self.is_inactive(buildjob_date[0]["endDate"]):
@@ -97,7 +84,6 @@ class DBWrapper:
 
     def is_inactive(self, buildjob_date):
         last_seven_days = datetime.today() - timedelta(days=7)
-        print >> sys.stderr, buildjob_date
         if buildjob_date >= last_seven_days:
             return True
         return False
