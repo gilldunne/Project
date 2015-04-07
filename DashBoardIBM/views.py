@@ -25,7 +25,7 @@ def get_active_inactive_per_team(request):
     """
     get_active_inactive_per_team
     """
-    team_name = "Connections Team" #request.GET.get("teamName")
+    team_name = request.GET.get("teamName")
     db = DBWrapper()
     db.db_open()
     data = db.get_active_inactive_per_team(team_name)
@@ -49,7 +49,7 @@ def get_build_job_collection_component_names(request):
 
 @api_view(['GET', ])
 def get_build_job_usage_sub_teams(request):
-    component_name = "Connections" #request.GET.get("componentName")
+    component_name = request.GET.get("componentName")
     db = DBWrapper()
     db.db_open()
     data = db.get_build_job_usage(component_name)

@@ -27,41 +27,45 @@
         <div class="navContainer">
             <div class="lotusMenu">
                 <div class="lotusMenuSection">
-                    <h1 class="lotusHeading"> <a href="buildjobs" class ="button">By Team </a></h1>
+                    <h1 class="lotusHeading teams" > By Team </h1>
                 </div>
                 <div class="lotusTwistyOpenMenu">
                     <ul class="x">
-                        <li><a href="#.html" class ="button">Connections Team</a></li>
+                        <li class="singleTeam">Connections Team</li>
+                        <ul class="lotusMenuSubsection">
+                            <li class="singleComponent">Connections</li>
+                            <li class="singleComponent">Social Contacts</li>
+                        </ul>
 
+                        <li class="singleTeam">Cloud Platfrom Team</li>
                         <ul class="lotusMenuSubsection">
-                            <li class="terry">Connections</li>
-                            <li><a href="#.html" class ="button">Social Contacts</a></li>
+                            <li class="singleComponent">BSS Core</li>
+                            <li class="singleComponent">BSS UI</li>
                         </ul>
-                        <li><a href="#.html" class ="button">Cloud Platfrom Team</a></li>
+
+                        <li class="singleTeam">IBM Docs Team</li>
                         <ul class="lotusMenuSubsection">
-                            <li><a href="#.html" class ="button">BSS Core</a></li>
-                            <li><a href="#.html" class ="button">BSS UI</a></li>
+                            <li class="singleComponent">Docs Editor</li>
+                            <li class="singleComponent">Docs Viewer</li>
                         </ul>
-                        <li><a href="#.html" class ="button">IBM Docs Team</a></li>
+
+                        <li class="singleTeam">Sametime Team</li>
                         <ul class="lotusMenuSubsection">
-                            <li><a href="#.html" class ="button">Docs Editor</a></li>
-                            <li><a href="#.html" class ="button">Docs Viewer</a></li>
+                            <li class="singleComponent">WebChat</li>
+                            <li class="singleComponent">Sametime</li>
+                            <li class="singleComponent">Sametime PC Audio</li>
+                            <li class="singleComponent">Sametime Meetings</li>
                         </ul>
-                        <li><a href="#.html" class ="button">Sametime Team</a></li>
+
+                        <li class="singleTeam">Unyte Team</li>
                         <ul class="lotusMenuSubsection">
-                            <li><a href="#.html" class ="button">WebChat</a></li>
-                            <li><a href="#.html" class ="button">Sametime</a></li>
-                            <li><a href="#.html" class ="button">Sametime PC Audio</a></li>
-                            <li><a href="#.html" class ="button">Sametime Meetings</a></li>
+                            <li class="singleComponent">Unyte Meetings</li>
+                            <li class="singleComponent">Unyte Events</li>
                         </ul>
-                        <li><a href="#.html" class ="button">Unyte Team</a></li>
+
+                        <li class="singleTeam">Foundations Team</li>
                         <ul class="lotusMenuSubsection">
-                            <li><a href="#.html" class ="button">Unyte Meetings</a></li>
-                            <li><a href="#.html" class ="button">Unyte Events</a></li>
-                        </ul>
-                        <li><a href="#.html" class ="button">Foundations Team</a></li>
-                        <ul class="lotusMenuSubsection">
-                            <li><a href="#.html" class ="button">Foundations</a></li>
+                            <li class="singleComponent">Foundations</li>
                         </ul>
                     </ul>
                 </div>
@@ -70,21 +74,13 @@
 
         <div class="mainContainer">
 
-            <svg class="totalBuildJobs"></svg>
-            <script src="{% static 'scripts/totalBuildJobs.js' %}"></script>
+            <div class="totalBuildJobs"></div>
 
             <div class="chart"> </div>
-                <script src="{% static 'scripts/componentBuildjobs.js' %}"></script>
 
+            <div class="buildjobUsageGraph"></div>
 
-
-                <div class="buildjobUsageGraph">
-                <script src="{% static 'scripts/buildjobUsage.js' %}"></script>
-            </div>
-
-            <div class="activeInuseServerGraph">
-                <script src="{% static 'scripts/activeInuseServers.js' %}"></script>
-            </div>
+            <div class="activeInuseServerGraph"></div>
 
 
 
@@ -112,4 +108,11 @@
     </div>
 </div>
 </body>
+
+
+<script src="{% static 'scripts/componentBuildjobs.js' %}"></script>
+<script src="{% static 'scripts/buildjobUsage.js' %}"></script>
+<script src="{% static 'scripts/activeInuseServers.js' %}"></script>
+<script src="{% static 'scripts/totalBuildJobs.js' %}"></script>
+<script src="{% static 'scripts/clicks.js' %}"></script>
 </html>
