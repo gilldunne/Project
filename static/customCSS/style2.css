@@ -8,6 +8,12 @@ a
 {
 	color: #2b2bf6;
 }
+.navContainer {
+    float: left;
+}
+.mainContainer {
+    float: right;
+}
 #container
 {
 	width: 900px;
@@ -67,6 +73,8 @@ a
 	background: #fff;
 	clear:both;
 }
+
+
 
 #dashboard
 {

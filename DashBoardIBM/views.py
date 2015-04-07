@@ -25,7 +25,7 @@ def get_active_inactive_per_team(request):
     """
     get_active_inactive_per_team
     """
-    team_name =  "Connections Team"#request.GET.get("teamName")
+    team_name = "Connections Team" #request.GET.get("teamName")
     db = DBWrapper()
     db.db_open()
     data = db.get_active_inactive_per_team(team_name)

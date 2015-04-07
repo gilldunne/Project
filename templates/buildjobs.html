@@ -17,7 +17,6 @@
 		<title>BuilJobs</title>
 		<link rel="stylesheet" type="text/css" href="{% static '/static/customCSS/style.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static '/static/css/base/core.css' %}">
-{#        <link rel="stylesheet" type="text/css" href="{% static '/static/css/defaultTheme/defaultTheme.css' %}">#}
         <link rel="stylesheet" type="text/css" href="{% static '/static/css/base/components/header.css' %}">
 		<script src="http://d3js.org/d3.v3.min.js"></script>
         <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
@@ -41,7 +40,7 @@
                 <div class="navContainer">
                     <div class="lotusMenu">
                         <div class="lotusMenuSection">
-                            <h1 class="lotusHeading"> By Team </h1>
+                            <h1 class="lotusHeading"> <a href="buildjobs" class ="button">By Team </a></h1>
                         </div>
                         <div class="lotusTwistyOpenMenu">
                             <ul>
@@ -80,6 +79,7 @@
                         </div> <!-- lotusTwistyOpenMenu end -->
                     </div>
                 </div>
+
                 <div class="mainContainer">
                     <h3>Number of Buildjobs per Team</h3>
                     <svg class="chart"></svg>
