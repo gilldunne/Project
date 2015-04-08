@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>Team Dashboard</title>
+    <link href="//www.ibm.com/favicon.ico" rel="SHORTCUT ICON">
     <link rel="stylesheet" type="text/css" href="{% static '/static/customCSS/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/static/css/base/core.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/static/css/base/components/header.css' %}">
@@ -27,7 +28,7 @@
         <div class="navContainer">
             <div class="lotusMenu">
                 <div class="lotusMenuSection">
-                    <ul><h1 class="lotusHeading teams" ><a> By Team</a> </h1></ul>
+                    <ul class="lotusHeading teams" ><a> By Team</a> </ul>
                 </div>
                 <div class="lotusTwistyOpenMenu">
                     <ul class="x">
@@ -74,14 +75,19 @@
 
         <div class="mainContainer">
 
-            <div class="totalBuildJobs"></div>
+            <div class="totalBuildJobs singleBars" >
+                <div class="lotusHeading">
+                    <h2>Total Number Servers</h2>
+                    <p>This graph displays the total number of servers per Team</p>
+                </div>
+            </div>
 
             <div class="chart"> </div>
 
             <div class="buildjobUsageGraph"></div>
 
             <div class="activeInuseServerGraph"></div>
-            
+
         </div>
     </div>
 </div>

@@ -19,14 +19,13 @@ ul, li:hover {
 .axis path {
     display: none;
 }
+
 .axis line {
     stroke: #fff;
     stroke-opacity: .5;
     shape-rendering: crispEdges;
 }
-.totalBuildJobs, .chart rect:hover {
-    fill: #64707D;
-}
+
 .chart .legend {
     fill: black;
     font: 14px sans-serif;
@@ -39,9 +38,7 @@ ul, li:hover {
     font: 14px sans-serif;
     text-anchor: end;
 }
-.bar:hover {
-    fill: brown;
-}
+
 .d3-tip {
     line-height: 1;
     font-weight: bold;
@@ -70,24 +67,42 @@ ul, li:hover {
     top: 100%;
     left: 0;
 }
-#container
-{
+
+#container {
     width: 900px;
     margin: 0 auto;
 }
 
-path {  stroke: #fff; }
-path:hover {  opacity:0.9; }
-rect:hover {  fill:blue; }
+path {
+    stroke: #fff;
+}
 
-.legend tr{    border-bottom:1px solid grey; }
-.legend tr:first-child{    border-top:1px solid grey; }
+path:hover {
+    opacity:0.9;
+}
 
-.legend td{
+rect:hover {
+    fill:blue;
+}
+
+.legend tr {
+    border-bottom:1px solid grey;
+}
+
+.legend tr:first-child {
+    border-top:1px solid grey;
+}
+
+.legend td {
     padding:4px 5px;
     vertical-align:bottom;
 }
-.legendFreq, .legendPerc{
+
+.legendFreq, .legendPerc {
     align:right;
     width:50px;
+}
+
+.totalBuildJobs{
+    padding: 10px;
 }
