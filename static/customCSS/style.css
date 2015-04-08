@@ -1,142 +1,93 @@
-body
-{
-	/*background: #ffffff; */
-	margin: 0; 
-	padding: 0;
-} 
-a 
-{
-	color: #2b2bf6;
+body {
+    margin: 0;
+    padding: 0;
 }
+
 .navContainer {
     float: left;
 }
+
 .mainContainer {
     float: right;
 }
 
-.chart {
-  background: #E0E0FF;
-  margin: 5px;
+ul, li:hover {
+    cursor: hand;
+    cursor: pointer;
 }
 
-.chart text.data {
-  font: 10px sans-serif;
-}
-.chart text.name {
-  fill: #000;
-}
 .axis path {
-  display: none;
+    display: none;
 }
 .axis line {
-  stroke: #fff;
-  stroke-opacity: .5;
-  shape-rendering: crispEdges;
-}  
-.chart rect:hover {
-  fill: #64707D;
+    stroke: #fff;
+    stroke-opacity: .5;
+    shape-rendering: crispEdges;
+}
+.totalBuildJobs, .chart rect:hover {
+    fill: #64707D;
 }
 .chart .legend {
-  fill: black;
-  font: 14px sans-serif;
-  text-anchor: start;
-  font-size: 12px;
+    fill: black;
+    font: 14px sans-serif;
+    text-anchor: start;
+    font-size: 12px;
 }
 
 .chart .label {
-  fill: black;
-  font: 14px sans-serif;
-  text-anchor: end;
+    fill: black;
+    font: 14px sans-serif;
+    text-anchor: end;
 }
 .bar:hover {
-  fill: brown;
+    fill: brown;
+}
+.d3-tip {
+    line-height: 1;
+    font-weight: bold;
+    padding: 8px;
+    background: rgba(255, 255, 255,0.8);
+    color: #000;
+    border-radius: 2px;
 }
 
-			.d3-tip {
-			  line-height: 1;
-			  font-weight: bold;
-			  padding: 8px;
-			  background: rgba(255, 255, 255,0.8);
-			  color: #000;
-			  border-radius: 2px;
-			}
-
-			/* Creates a small triangle extender for the tooltip */
-			.d3-tip:after {
-			  box-sizing: border-box;
-			  display: inline;
-			  font-size: 10px;
-			  width: 100%;
-			  line-height: 1;
-			  color: rgba(255, 255, 255, 0.8);
-			  content: "\25BC";
-			  position: absolute;
-			  text-align: center;
-			}
-
-			/* Style northward tooltips differently */
-			.d3-tip.n:after {
-			  margin: -1px 0 0 0;
-			  top: 100%;
-			  left: 0;
-			}
-#container 
-{
-	width: 900px;
-	margin: 0 auto;
-}           
-#header 
-{
-	width: 900px; 	
-	height: 30px; 	
-	margin: 0 auto; 
-	padding-top: 0; 
-	background: #ccc;
-}           
-#sidebar 
-{
-	width: 140px; 
-	height: 400px; 	
-	margin: 0; 
-	padding: 15; 
-	border: 0; 
-	float: left;
-	background: #fff;
-}  
-#sidebar> li {
-	display: block;
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
 }
 
-#sidebar> li > a {
-	display: block;
-	height: 5%;
-	width: 50%;
-	padding: 1em;
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+}
+#container
+{
+    width: 900px;
+    margin: 0 auto;
 }
 
-#sidebar> li > a:hover {
-	background: #E9c620;
-}         
-#content 
-{
-	width: 700px; 
-	height: 400px; 	
-	margin: 0 auto; 
-	padding: 15; 
-	border: 0; 
-	float: left; 
-	
-}           
-#footer
-{
-	width: 900px; 	
-	height: 70px; 	
-	margin: 0 auto; 
-	padding: 0; 
-	border: 0; 
-	float: left; 
-	background: #fff; 
-	clear:both;
-}                            
+path {  stroke: #fff; }
+path:hover {  opacity:0.9; }
+rect:hover {  fill:blue; }
 
+.legend tr{    border-bottom:1px solid grey; }
+.legend tr:first-child{    border-top:1px solid grey; }
+
+.legend td{
+    padding:4px 5px;
+    vertical-align:bottom;
+}
+.legendFreq, .legendPerc{
+    align:right;
+    width:50px;
+}
