@@ -15,17 +15,23 @@ var activeInuseServersObj = function() {
                 url: "/api/get_active_inactive_per_team",
                 cache: false,
                 success: function (response) {
-                    callbackResponseActive(response);
+                    if(response.length==0)
+                        $('.activeInuseServerGraph').append('<h2>No Graph to for this data</h2>');
+                    else {
+                        $('.activeInuseServerGraph').append(
+                            '<h2>Number of Servers In Use</h2>');
+                        callbackResponseActive(response);
+                    }
                 }
             });
         };
 
         // Create the Active /  Inactive graph
         function dashboard(id, fData) {
-            // Colors of the graph
-            var barColor = 'steelblue';
+            // Colors of the graph#3366FF", "#2447B2", "#85A3FF"
+            var barColor = '#2447B2';
             function segColor(c) {
-                return {InUse: "#807dba", NotInUse: "#e08214"}[c];
+                return {InUse: "#3366FF", NotInUse: "#85A3FF"}[c];
             }
 
             // compute total for each name.
@@ -37,7 +43,7 @@ var activeInuseServersObj = function() {
             function histoGram(fD) {
                 var hG = {},
                     hGDim = {t: 60, r: 0, b: 30, l: 0};
-                hGDim.w = 460 - hGDim.l - hGDim.r,
+                hGDim.w = 260 - hGDim.l - hGDim.r,
                     hGDim.h = 260 - hGDim.t - hGDim.b;
 
                 //create svg for histogram.
@@ -220,8 +226,8 @@ var activeInuseServersObj = function() {
                 var tr = legend.append("tbody").selectAll("tr").data(lD).enter().append("tr");
 
                 // create the first column for each segment.
-                tr.append("td").append("svg").attr("width", '16').attr("height", '16').append("rect")
-                    .attr("width", '16').attr("height", '16')
+                tr.append("td").append("svg").attr("width", '15').attr("height", '15').append("rect")
+                    .attr("width", '15').attr("height", '15')
                     .attr("fill", function (d) {
                         return segColor(d.type);
                     });

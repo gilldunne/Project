@@ -11,8 +11,11 @@ var buildJobUsageObj = function(){
                 url: "/api/get_build_job_usage_sub_teams",
                 cache: false,
                 success: function (response) {
-                    if(response.length==0)  $('.buildjobUsageGraph').append('<h2>Boom</h2>');
+                    if(response.length==0)
+                        $('.buildjobUsageGraph').append('<h2>No Graph to for this data</h2>');
                     else {
+                        $('.buildjobUsageGraph').append('<h2>Server Usages</h2>' +
+                        '<p>The number of servers per </p><br>');
                         callbackResponseUsage(response);
                     }
                 }
@@ -26,13 +29,13 @@ var buildJobUsageObj = function(){
         };
 
         function pieUsage(dataset) {
-            var w = 450;
-            var h = 400;
+            var w = 430;
+            var h = 430;
             var labelArea = 150;
-            var colours = ["#99C2EB", "#0066CC", "#337DC6"];
-            var color = d3.scale.category20();
+            var color = ["#3366FF", "#2447B2", "#85A3FF"];
+            var colors = d3.scale.category20();
             var outerRadius = (w - labelArea) / 2;
-            var innerRadius = 0;
+            var innerRadius = 80;
             var arc = d3.svg.arc()
                 .innerRadius(innerRadius)
                 .outerRadius(outerRadius);
@@ -40,8 +43,15 @@ var buildJobUsageObj = function(){
             //Create SVG element
             var svg = d3.select(".buildjobUsageGraph")
                 .append("svg")
-                .attr("width", w)
-                .attr("height", h);
+                .attr("width", w+20)
+                .attr("height", h+20);
+            var message = [];
+            var tip = d3.tip()
+                .attr('class', 'd3-tip')
+                .offset([50, 10])
+                .html(function (d, i) {
+                        return "<span style='color:black'>" + message[i] + "</span>";
+                });
 
             //Set up groups
             var arcs = svg.selectAll("g.arc")
@@ -54,23 +64,20 @@ var buildJobUsageObj = function(){
             //Draw arc paths
             arcs.append("path")
                 .attr("fill", function (d, i) {
-                    return color(i);
+                    return color[i];
                 })
                 .attr("d", arc);
 
             arcs.append("path")
                 .attr("fill", function (d, i) {
-                    return color(i);
+                    return color[i];
                 })
                 .attr("d", arc)
-                .on("mouseover", function (d) {
-                    d3.select(this)
-                        .attr("fill", "#64707D");
-                })
-                .on("mouseout", function (d, i) {
-                    d3.select(this)
-                        .attr("fill", color(i));
-                });
+                .on("mouseover", tip.show)
+                .on("mouseout", tip.hide);
+
+            arcs.call(tip);
+
             //Labels
             arcs.append("text")
                 .attr("transform", function (d) {
@@ -95,7 +102,7 @@ var buildJobUsageObj = function(){
                 .attr("width", 15)
                 .attr("height", 15)
                 .style("fill", function (d, i) {
-                    return color(i);
+                    return color[i];
                 });
 
             legend.append("text")
@@ -103,9 +110,13 @@ var buildJobUsageObj = function(){
                 .attr("y", 9)
                 .attr("dy", ".35em")
                 .style("text-anchor", "end")
-                .text(function (d) {
+                .text(function (d, i) {
+                    message[i] = d.status;
                     return d.status;
                 });
+
+
+
         }
 
         var params = "componentName="+sessionStorage.getItem("componentName");
@@ -116,3 +127,4 @@ var buildJobUsageObj = function(){
         init:init
     };
 }();
+

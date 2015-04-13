@@ -2,8 +2,8 @@ import datetime
 from pymongo import MongoClient
 from datetime import timedelta, datetime
 
-client = MongoClient()
-db = client.TestEasyJLV
+# client = MongoClient()
+# db = client.TestEasyJLV
 
 class DBWrapper:
 
@@ -88,8 +88,6 @@ class DBWrapper:
             return True
         return False
 
-    #TODO - Add in the number of servers
-
     def get_build_job_usage(self, componentName):
         c = self.db.buildjob
         distinct_query = {"componentName": componentName}
@@ -102,3 +100,6 @@ class DBWrapper:
             list_of_buildjobs.update({"count":length, "status": sub_team})
             sub_teams.append(list_of_buildjobs)
         return sub_teams
+
+# for a given component
+# get the subteam name and the number of unique buildjobs for that subteam

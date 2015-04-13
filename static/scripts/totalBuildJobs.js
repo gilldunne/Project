@@ -11,7 +11,15 @@ var totalBuildjobsObj = function(){
                 cache: false,
 
                 success: function (response) {
-                    callbackResponse(response);
+                    if(response.length==0)
+                        $('.totalBuildJobs').append('<h2>No Graph to for this data</h2>');
+                    else {
+                        $('.totalBuildJobs').append(
+                            '<h2>Total Number Servers</h2>' +
+                            '<p>This graph displays the total number of servers per Team. This data is based on ' +
+                            'there being <br>one unique Buildjob name per server</p>');
+                        callbackResponse(response);
+                    }
                 }
             });
         };
@@ -30,7 +38,7 @@ var totalBuildjobsObj = function(){
                 });
 
             var margin = {top: 30, right: 20, bottom: 20, left: 150},
-                width = 520,
+                width = 500,
                 barHeight = 20,
                 height = barHeight * data.length;
 
@@ -61,7 +69,7 @@ var totalBuildjobsObj = function(){
             chart.call(tip);
 
             chart.append("g")
-                .attr("fill", "steelblue")
+                .attr("fill", "#4775FF")
                 .attr("class", "bars")
                 .selectAll("rect")
                 .data(data)

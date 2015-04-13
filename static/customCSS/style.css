@@ -8,7 +8,8 @@ body {
 }
 
 .mainContainer {
-    float: right;
+    float: left;
+    padding: 10px;
 }
 
 ul, li:hover {
@@ -43,7 +44,7 @@ ul, li:hover {
     line-height: 1;
     font-weight: bold;
     padding: 8px;
-    background: rgba(255, 255, 255,0.8);
+    background: rgba(255, 255, 255,1.8);
     color: #000;
     border-radius: 2px;
 }
@@ -55,7 +56,7 @@ ul, li:hover {
     font-size: 10px;
     width: 100%;
     line-height: 1;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 1.8);
     content: "\25BC";
     position: absolute;
     text-align: center;
@@ -81,28 +82,23 @@ path:hover {
     opacity:0.9;
 }
 
+path:hover {
+    fill:blue;
+}
 rect:hover {
     fill:blue;
 }
 
-.legend tr {
-    border-bottom:1px solid grey;
+.legend{
+    float:right;
 }
-
-.legend tr:first-child {
-    border-top:1px solid grey;
-}
-
 .legend td {
     padding:4px 5px;
     vertical-align:bottom;
 }
 
 .legendFreq, .legendPerc {
-    align:right;
-    width:50px;
+    align:left;
+    width:5px;
 }
 
-.totalBuildJobs{
-    padding: 10px;
-}
