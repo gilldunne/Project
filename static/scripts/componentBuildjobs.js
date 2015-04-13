@@ -12,7 +12,13 @@ var componentBuildJobsObj = function() {
                 cache: false,
 
                 success: function (response) {
-                    callbackResponse(response);
+                    if(response.length==0)
+                        $('.chart').append('<h2>No Graph to for this data</h2>');
+                    else {
+                        $('.chart').append(
+                            '<h2>Number Servers per Component</h2>');
+                        callbackResponse(response);
+                    }
                 }
             });
         };
@@ -31,7 +37,7 @@ var componentBuildJobsObj = function() {
                 });
 
 
-            var margin = {top: 30, right: 20, bottom: 20, left: 150},
+            var margin = {top: 30, right: 20, bottom: 50, left: 150},
                 width = 520,
                 barHeight = 20,
                 height = barHeight * data.length;
@@ -63,7 +69,7 @@ var componentBuildJobsObj = function() {
             chart.call(tip);
 
             chart.append("g")
-                .attr("fill", "steelblue")
+                .attr("fill", "#4775FF")
                 .attr("class", "bars")
                 .selectAll("rect")
                 .data(data)

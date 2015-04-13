@@ -10,6 +10,7 @@
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
     <meta charset="utf-8">
 </head>
 <body>
@@ -38,7 +39,7 @@
                             <li class="singleComponent"><a>Social Contacts</a></li>
                         </ul>
 
-                        <li class="singleTeam"><a>Cloud Platfrom Team</a></li>
+                        <li class="singleTeam"><a>Cloud Platform Team</a></li>
                         <ul class="lotusMenuSubsection">
                             <li class="singleComponent"><a>BSS Core</a></li>
                             <li class="singleComponent"><a>BSS UI</a></li>
@@ -50,12 +51,12 @@
                             <li class="singleComponent"><a>Docs Viewer</a></li>
                         </ul>
 
-                        <li class="singleTeam"><a>Sametime Team</a></li>
+                        <li class="singleTeam"><a>SameTime Team</a></li>
                         <ul class="lotusMenuSubsection">
                             <li class="singleComponent"><a>WebChat</a></li>
-                            <li class="singleComponent"><a>Sametime</a></li>
-                            <li class="singleComponent"><a>Sametime PC Audio</a></li>
-                            <li class="singleComponent"><a>Sametime Meetings</a></li>
+                            <li class="singleComponent"><a>SameTime</a></li>
+                            <li class="singleComponent"><a>SameTime PC Audio</a></li>
+                            <li class="singleComponent"><a>SameTime Meetings</a></li>
                         </ul>
 
                         <li class="singleTeam"><a>Unyte Team</a></li>
@@ -75,14 +76,16 @@
 
         <div class="mainContainer">
 
-            <div class="totalBuildJobs singleBars" >
-                <div class="lotusHeading">
-                    <h2>Total Number Servers</h2>
-                    <p>This graph displays the total number of servers per Team</p>
-                </div>
-            </div>
+            <div class="totalBuildJobs singleBars" ></div>
 
-            <div class="chart"> </div>
+            <div>
+{#                <div class="lotusHeading">#}
+{#                    <h2>Total Number Servers</h2>#}
+{#                    <p>This graph displays the total number of servers per Team based on there being one unique <br>#}
+{#                        Buildjob name per server</p>#}
+{#                </div>#}
+                <div class="chart"></div>
+            </div>
 
             <div class="buildjobUsageGraph"></div>
 
