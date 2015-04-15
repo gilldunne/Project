@@ -93,9 +93,10 @@ class DBWrapper:
         distinct_query = {"componentName": componentName}
         sub_teams = []
         list_of_subTeam = self.get_distinct_list("subTeam", distinct_query)
+
         for sub_team in list_of_subTeam:
             list_of_buildjobs = {}
-            query = c.find({"subTeam":str(sub_team)}).distinct("name")
+            query = c.find({"componentName": str(componentName),"subTeam":str(sub_team)}).distinct("name")
             length = len(query)
             list_of_buildjobs.update({"count":length, "status": sub_team})
             sub_teams.append(list_of_buildjobs)
