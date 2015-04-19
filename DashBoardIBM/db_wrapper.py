@@ -6,7 +6,7 @@ from datetime import timedelta, datetime
 class DBWrapper:
 
     client = MongoClient()
-    db = client.TestEasyJLV
+    db = client.TestTeams
 
     # Open a connection to TestEasyJLV
     def db_open(self):

@@ -13,6 +13,7 @@ html {
 .mainContainer {
     float: left;
     padding: 10px;
+    width: 800px;
     font-family: "Arial", sans-serif;
 }
 .dropdownRegion{
@@ -107,11 +108,12 @@ rect:hover {
 }
 
 .legend{
-    float:right;
+    float: left;
+    bottom: 0;
 }
 .legend td {
     padding:4px 5px;
-    vertical-align:bottom;
+    vertical-align:center;
 }
 
 .legendFreq, .legendPerc {

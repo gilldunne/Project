@@ -29,9 +29,6 @@ var activeInuseServersObj = function() {
 
         // Create the Active /  Inactive graph
         function dashboard(id, fData) {
-
-
-
             // Colors of the graph#3366FF", "#2447B2", "#85A3FF"
             var barColor = '#2447B2';
             function segColor(c) {
@@ -47,7 +44,7 @@ var activeInuseServersObj = function() {
             function histoGram(fD) {
                 var hG = {},
                     hGDim = {t: 60, r: 0, b: 30, l: 0};
-                    hGDim.w = 260 - hGDim.l - hGDim.r;
+                    hGDim.w = 440 - hGDim.l - hGDim.r;
                     hGDim.h = 260 - hGDim.t - hGDim.b;
 
                 //create svg for histogram.
@@ -103,7 +100,7 @@ var activeInuseServersObj = function() {
                     .attr("y", function (d) {
                         return y(d[1]) - 5;
                     })
-                    .attr("text-anchor", "NotInUsedle");
+                    .attr("text-anchor", "NotInUse");
 
                 function mouseover(d) {  // utility function to be called on mouseover.
                     // filter for selected name.
@@ -159,11 +156,11 @@ var activeInuseServersObj = function() {
             // function to handle pieChart.
             function pieChart(pD) {
                 var pC = {},
-                    pieDim = {w: 230, h: 260};
+                    pieDim = {w: 260, h: 260};
                 pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
 
                 // create svg for pie chart.
-                var piesvg = d3.select(id).append("svg")
+                var piesvg = d3.select(id).append("svg").attr('class', 'legend')
                     .attr("width", pieDim.w).attr("height", pieDim.h).append("g")
                     .attr("transform", "translate(" + pieDim.w / 2 + "," + pieDim.h / 2 + ")");
 
