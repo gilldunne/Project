@@ -2,8 +2,6 @@ import datetime
 from pymongo import MongoClient
 from datetime import timedelta, datetime
 
-# client = MongoClient()
-# db = client.TestEasyJLV
 
 class DBWrapper:
 
@@ -101,6 +99,3 @@ class DBWrapper:
             list_of_buildjobs.update({"count":length, "status": sub_team})
             sub_teams.append(list_of_buildjobs)
         return sub_teams
-
-# for a given component
-# get the subteam name and the number of unique buildjobs for that subteam

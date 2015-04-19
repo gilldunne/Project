@@ -14,8 +14,13 @@ var buildJobUsageObj = function(){
                     if(response.length==0)
                         $('.buildjobUsageGraph').append('<h2>No Graph to for this data</h2>');
                     else {
-                        $('.buildjobUsageGraph').append('<h2>Server Usages</h2>' +
-                        '<p>The number of servers per </p><br>');
+                        $('.buildjobUsageGraph').append(
+                            '<div class="lotusui30">'+
+                                '<div class="lotusHeading">'+
+                                    '<h1 class="title">'+ params.replace('componentName=', '')+'</h1>' +
+                                '</div>'+
+                                '<h3>Server Usages</h3>'+
+                                '<p>The number of servers based on the usages of each component. </p><br>');
                         callbackResponseUsage(response);
                     }
                 }
@@ -29,8 +34,8 @@ var buildJobUsageObj = function(){
         };
 
         function pieUsage(dataset) {
-            var w = 430;
-            var h = 430;
+            var w = 500;
+            var h = 330;
             var labelArea = 150;
             var color = ["#3366FF", "#2447B2", "#85A3FF"];
             var colors = d3.scale.category20();
@@ -97,13 +102,6 @@ var buildJobUsageObj = function(){
                     return "translate(0," + i * 20 + ")";
                 });
 
-            legend.append("rect")
-                .attr("x", w - 18)
-                .attr("width", 15)
-                .attr("height", 15)
-                .style("fill", function (d, i) {
-                    return color[i];
-                });
 
             legend.append("text")
                 .attr("x", w - 24)
@@ -115,6 +113,13 @@ var buildJobUsageObj = function(){
                     return d.status;
                 });
 
+            legend.append("rect")
+                .attr("x", w - 18)
+                .attr("width", 15)
+                .attr("height", 15)
+                .style("fill", function (d, i) {
+                    return color[i];
+                });
 
 
         }

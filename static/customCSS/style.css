@@ -2,17 +2,33 @@ body {
     margin: 0;
     padding: 0;
 }
+html {
+  overflow-y: scroll;
+}
 
 .navContainer {
     float: left;
+    font-family: "Arial", sans-serif;
 }
-
 .mainContainer {
     float: left;
     padding: 10px;
+    font-family: "Arial", sans-serif;
+}
+.dropdownRegion{
+ float: right;
 }
 
-ul, li:hover {
+ul, li{
+    list-style-type: none;
+    text-decoration: none;
+}
+.highlight,
+ul:hover, li:hover {
+    background-color: #CCCCCC;
+    -webkit-transition: background-color 0.2s linear;
+    -moz-transition: background-color 0.2s linear;
+    -o-transition: background-color 0.2s linear;
     cursor: hand;
     cursor: pointer;
 }
@@ -22,7 +38,7 @@ ul, li:hover {
 }
 
 .axis line {
-    stroke: #fff;
+    stroke: #ccc;
     stroke-opacity: .5;
     shape-rendering: crispEdges;
 }
@@ -46,6 +62,7 @@ ul, li:hover {
     padding: 8px;
     background: rgba(255, 255, 255,1.8);
     color: #000;
+    border: double;
     border-radius: 2px;
 }
 
@@ -70,7 +87,7 @@ ul, li:hover {
 }
 
 #container {
-    width: 900px;
+    width: 1000px;
     margin: 0 auto;
 }
 
@@ -101,4 +118,16 @@ rect:hover {
     align:left;
     width:5px;
 }
+svg{
+    padding: 3px;
+    border:1px solid #ccc;
+    background-color: #eee	;
+}
 
+h1{
+    text-align: center;
+}
+.buildjobUsageGraph{
+    width: 690px;
+
+}

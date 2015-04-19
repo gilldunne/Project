@@ -14,6 +14,10 @@ $(document).ready(function(){
     pageSetup();
 
     $(".teams").click(function(){
+
+        $('.highlight').removeClass('highlight');
+        $(this).closest('li').addClass('highlight');
+
         $(".chart").hide();
         $(".buildjobUsageGraph").hide();
         $(".activeInuseServerGraph").hide();
@@ -23,6 +27,9 @@ $(document).ready(function(){
 
     $(".singleTeam").click(function(e){
         sessionStorage.setItem("teamName",e.target.innerHTML);
+
+$('.highlight').removeClass('highlight');
+        $(this).closest('li').addClass('highlight');
 
         var a = componentBuildJobsObj.init();
         var b = activeInuseServersObj.init();
@@ -37,6 +44,9 @@ $(document).ready(function(){
     $(".singleComponent").click(function(e){
 
         sessionStorage.setItem("componentName",e.target.innerHTML);
+
+        $('.highlight').removeClass('highlight');
+        $(this).addClass('highlight');
 
         var c = buildJobUsageObj.init();
 

@@ -15,9 +15,13 @@ var totalBuildjobsObj = function(){
                         $('.totalBuildJobs').append('<h2>No Graph to for this data</h2>');
                     else {
                         $('.totalBuildJobs').append(
-                            '<h2>Total Number Servers</h2>' +
-                            '<p>This graph displays the total number of servers per Team. This data is based on ' +
-                            'there being <br>one unique Buildjob name per server</p>');
+                            '<div class="lotusui30">'+
+                                '<div class="lotusHeading">'+
+                                    '<h1 class="title">Total Number Servers</h1>' +
+                                '</div>'+
+                                '<p>The graph below displays the total number of servers per Team. This data is based on there being ' +
+                                '<br>one unique Buildjob name per Server. </p><br>' +
+                            '</div>');
                         callbackResponse(response);
                     }
                 }
@@ -37,9 +41,9 @@ var totalBuildjobsObj = function(){
                     return "<strong>Total:</strong> <span style='color:black'>" + d + "</span>";
                 });
 
-            var margin = {top: 30, right: 20, bottom: 20, left: 150},
-                width = 500,
-                barHeight = 20,
+            var margin = {top: 30, right: 20, bottom: 20, left: 155},
+                width = 520,
+                barHeight = 30,
                 height = barHeight * data.length;
 
             var x = d3.scale.linear()
@@ -89,7 +93,7 @@ var totalBuildjobsObj = function(){
             chart.selectAll("text.name")
                 .data(names)
                 .enter().append("text")
-                .attr("x", -145)
+                .attr("x", -155)
                 .attr("y", function (d) {
                     return y(d) + barHeight / 2;
                 })

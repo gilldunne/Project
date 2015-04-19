@@ -13,13 +13,14 @@ var activeInuseServersObj = function() {
                 type: "GET",
                 data: params,
                 url: "/api/get_active_inactive_per_team",
-                cache: false,
+                cache: false    ,
                 success: function (response) {
                     if(response.length==0)
                         $('.activeInuseServerGraph').append('<h2>No Graph to for this data</h2>');
                     else {
                         $('.activeInuseServerGraph').append(
-                            '<h2>Number of Servers In Use</h2>');
+                            '<h3>Number of Servers In Use</h3>' +
+                            '<p>The number of active servers in use and not in use based on the past 7 days. </p><br>');
                         callbackResponseActive(response);
                     }
                 }
@@ -28,6 +29,9 @@ var activeInuseServersObj = function() {
 
         // Create the Active /  Inactive graph
         function dashboard(id, fData) {
+
+
+
             // Colors of the graph#3366FF", "#2447B2", "#85A3FF"
             var barColor = '#2447B2';
             function segColor(c) {
@@ -43,7 +47,7 @@ var activeInuseServersObj = function() {
             function histoGram(fD) {
                 var hG = {},
                     hGDim = {t: 60, r: 0, b: 30, l: 0};
-                hGDim.w = 260 - hGDim.l - hGDim.r,
+                    hGDim.w = 260 - hGDim.l - hGDim.r;
                     hGDim.h = 260 - hGDim.t - hGDim.b;
 
                 //create svg for histogram.
@@ -155,7 +159,7 @@ var activeInuseServersObj = function() {
             // function to handle pieChart.
             function pieChart(pD) {
                 var pC = {},
-                    pieDim = {w: 230, h: 230};
+                    pieDim = {w: 230, h: 260};
                 pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
 
                 // create svg for pie chart.
@@ -214,9 +218,9 @@ var activeInuseServersObj = function() {
                 }
                 return pC;
             }
-
             // function to handle legend.
             function legend(lD) {
+
                 var leg = {};
 
                 // create table for legend.

@@ -16,7 +16,13 @@ var componentBuildJobsObj = function() {
                         $('.chart').append('<h2>No Graph to for this data</h2>');
                     else {
                         $('.chart').append(
-                            '<h2>Number Servers per Component</h2>');
+                            '<div class="lotusui30">'+
+                                '<div class="lotusHeading">'+
+                                    '<h1>'+ params.replace('teamName=', '')+'<h1>'+
+                                '</div>'+
+                                '<h3>Number of Servers for each Component</h3>' +
+                                '<p>The below graph shows the number of servers for each component on the team</p><br>'+
+                            '</div>');
                         callbackResponse(response);
                     }
                 }
@@ -37,9 +43,9 @@ var componentBuildJobsObj = function() {
                 });
 
 
-            var margin = {top: 30, right: 20, bottom: 50, left: 150},
+            var margin = {top: 30, right: 20, bottom: 30, left: 150},
                 width = 520,
-                barHeight = 20,
+                barHeight = 25,
                 height = barHeight * data.length;
 
             var x = d3.scale.linear()

@@ -7,7 +7,8 @@
     <link rel="stylesheet" type="text/css" href="{% static '/static/customCSS/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/static/css/base/core.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/static/css/base/components/header.css' %}">
-    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="{% static '/static/d3/d3.js' %}"></script>
+    <script src="{% static '/static/d3/d3.min.js' %}"></script>
     <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
@@ -32,64 +33,75 @@
                     <ul class="lotusHeading teams" ><a> By Team</a> </ul>
                 </div>
                 <div class="lotusTwistyOpenMenu">
-                    <ul class="x">
-                        <li class="singleTeam"><a>Connections Team</a></li>
-                        <ul class="lotusMenuSubsection">
-                            <li class="singleComponent"><a>Connections</a></li>
-                            <li class="singleComponent"><a>Social Contacts</a></li>
-                        </ul>
+                    <li class="singleTeam"><a>Connections Team</a></li>
+                    <ul class="lotusMenuSubsection">
+                        <li class="singleComponent"><a>Connections</a></li>
+                    </ul>
+                    <ul class="lotusMenuSubsection">
+                        <li class="singleComponent"><a>Social Contacts</a></li>
+                    </ul>
 
-                        <li class="singleTeam"><a>Cloud Platform Team</a></li>
-                        <ul class="lotusMenuSubsection">
-                            <li class="singleComponent"><a>BSS Core</a></li>
-                            <li class="singleComponent"><a>BSS UI</a></li>
-                        </ul>
+                    <li class="singleTeam"><a>Cloud Platform Team</a></li>
+                    <ul class="lotusMenuSubsection">
+                        <li class="singleComponent"><a>BSS Core</a></li>
+                    </ul>
+                    <ul class="lotusMenuSubsection">
+                        <li class="singleComponent"><a>BSS UI</a></li>
+                    </ul>
 
-                        <li class="singleTeam"><a>IBM Docs Team</a></li>
-                        <ul class="lotusMenuSubsection">
-                            <li class="singleComponent"><a>Docs Editor</a></li>
-                            <li class="singleComponent"><a>Docs Viewer</a></li>
-                        </ul>
+                    <li class="singleTeam"><a>IBM Docs Team</a></li>
+                    <ul class="lotusMenuSubsection">
+                        <li class="singleComponent"><a>Docs Editor</a></li>
+                    </ul>
+                    <ul class="lotusMenuSubsection">
+                        <li class="singleComponent"><a>Docs Viewer</a></li>
+                    </ul>
 
-                        <li class="singleTeam"><a>SameTime Team</a></li>
-                        <ul class="lotusMenuSubsection">
-                            <li class="singleComponent"><a>WebChat</a></li>
-                            <li class="singleComponent"><a>SameTime</a></li>
-                            <li class="singleComponent"><a>SameTime PC Audio</a></li>
-                            <li class="singleComponent"><a>SameTime Meetings</a></li>
-                        </ul>
+                    <li class="singleTeam"><a>SameTime Team</a></li>
+                    <ul class="lotusMenuSubsection">
+                        <li class="singleComponent"><a>WebChat</a></li>
+                    </ul>
+                    <ul class="lotusMenuSubsection">
+                        <li class="singleComponent"><a>SameTime</a></li>
+                    </ul>
+                    <ul class="lotusMenuSubsection">
+                        <li class="singleComponent"><a>SameTime PC Audio</a></li>
+                    </ul>
+                    <ul class="lotusMenuSubsection">
+                        <li class="singleComponent"><a>SameTime Meetings</a></li>
+                    </ul>
 
-                        <li class="singleTeam"><a>Unyte Team</a></li>
-                        <ul class="lotusMenuSubsection">
-                            <li class="singleComponent"><a>Unyte Meetings</a></li>
-                            <li class="singleComponent"><a>Unyte Events</a></li>
-                        </ul>
+                    <li class="singleTeam"><a>Unyte Team</a></li>
+                    <ul class="lotusMenuSubsection">
+                        <li class="singleComponent"><a>Unyte Meetings</a></li>
+                    </ul>
+                    <ul class="lotusMenuSubsection">
+                        <li class="singleComponent"><a>Unyte Events</a></li>
+                    </ul>
 
-                        <li class="singleTeam"><a>Foundations Team</a></li>
-                        <ul class="lotusMenuSubsection">
-                            <li class="singleComponent"><a>Foundations</a></li>
-                        </ul>
+                    <li class="singleTeam"><a>Foundations Team</a></li>
+                    <ul class="lotusMenuSubsection">
+                        <li class="singleComponent"><a>Foundations</a></li>
                     </ul>
                 </div>
             </div>
         </div>
 
         <div class="mainContainer">
+            {#            TODO - add in dropdowns#}
+            {#            <div class="dropdownRegion">#}
+            {#                <select>#}
+            {#                    <option value="volvo">Volvo</option>#}
+            {#                    <option value="saab">Saab</option>#}
+            {#                    <option value="opel">Opel</option>#}
+            {#                    <option value="audi">Audi</option>#}
+            {#                </select>#}
+            {#            </div>#}
 
             <div class="totalBuildJobs singleBars" ></div>
-
-            <div>
-{#                <div class="lotusHeading">#}
-{#                    <h2>Total Number Servers</h2>#}
-{#                    <p>This graph displays the total number of servers per Team based on there being one unique <br>#}
-{#                        Buildjob name per server</p>#}
-{#                </div>#}
-                <div class="chart"></div>
-            </div>
-
-            <div class="buildjobUsageGraph"></div>
-
+            <div class="chart"></div>
             <div class="activeInuseServerGraph"></div>
+            <div class="buildjobUsageGraph"></div>
 
         </div>
     </div>
