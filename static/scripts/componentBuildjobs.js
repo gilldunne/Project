@@ -43,8 +43,8 @@ var componentBuildJobsObj = function() {
                 });
 
 
-            var margin = {top: 30, right: 20, bottom: 30, left: 150},
-                width = 520,
+            var margin = {top: 30, right: 20, bottom: 20, left: 155},
+                width = 530,
                 barHeight = 25,
                 height = barHeight * data.length;
 
@@ -95,7 +95,7 @@ var componentBuildJobsObj = function() {
             chart.selectAll("text.name")
                 .data(names)
                 .enter().append("text")
-                .attr("x", -145)
+                .attr("x", -150)
                 .attr("y", function (d) {
                     return y(d) + barHeight / 2;
                 })

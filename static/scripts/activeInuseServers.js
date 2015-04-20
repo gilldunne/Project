@@ -20,7 +20,8 @@ var activeInuseServersObj = function() {
                     else {
                         $('.activeInuseServerGraph').append(
                             '<h3>Number of Servers In Use</h3>' +
-                            '<p>The number of active servers in use and not in use based on the past 7 days. </p><br>');
+                            '<p>The number of active servers "in use" and "not in use" based on the past 7 days. <br>' +
+                            'Hover over the pie chart segments to view the "in use" and "not in use" component segments</p><br>');
                         callbackResponseActive(response);
                     }
                 }
@@ -43,9 +44,9 @@ var activeInuseServersObj = function() {
             // function to handle histogram.
             function histoGram(fD) {
                 var hG = {},
-                    hGDim = {t: 60, r: 0, b: 30, l: 0};
-                    hGDim.w = 440 - hGDim.l - hGDim.r;
-                    hGDim.h = 260 - hGDim.t - hGDim.b;
+                    hGDim = {t: 60, r: 0, b: 50, l: 0};
+                hGDim.w = 440 - hGDim.l - hGDim.r;
+                hGDim.h = 280 - hGDim.t - hGDim.b;
 
                 //create svg for histogram.
                 var hGsvg = d3.select(id).append("svg")
@@ -62,7 +63,9 @@ var activeInuseServersObj = function() {
                 // Add x-axis to the histogram svg.
                 hGsvg.append("g").attr("class", "x axis")
                     .attr("transform", "translate(0," + hGDim.h + ")")
-                    .call(d3.svg.axis().scale(x).orient("bottom"));
+                    .call(d3.svg.axis().scale(x).orient("bottom"))
+                    .selectAll(".tick text")
+                    .call(wrap, x.rangeBand());
 
                 // Create function for y-axis map.
                 var y = d3.scale.linear().range([hGDim.h, 0])
@@ -156,7 +159,7 @@ var activeInuseServersObj = function() {
             // function to handle pieChart.
             function pieChart(pD) {
                 var pC = {},
-                    pieDim = {w: 260, h: 260};
+                    pieDim = {w: 260, h: 280};
                 pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
 
                 // create svg for pie chart.
@@ -289,12 +292,37 @@ var activeInuseServersObj = function() {
                 pC = pieChart(tF), // create the pie-chart.
                 leg = legend(tF);  // create the legend.
         }
-        // Get the Team Name from the Session Storage and pass back to the getRequest
-        var params ="teamName="+sessionStorage.getItem("teamName");
-        getRequest(params,callbackResponseActive);
-    };
-    init();
-    return {
-        init:init
-    };
-}();
+
+        function wrap(text, width) {
+            text.each(function () {
+                var text = d3.select(this),
+                    words = text.text().split(/\s+/).reverse(),
+                    word,
+                    line = [],
+                    lineNumber = 0,
+                    lineHeight = 1.1, // ems
+                    y = text.attr("y"),
+                    dy = parseFloat(text.attr("dy")),
+                    tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+                while (word = words.pop()) {
+                    line.push(word);
+                    tspan.text(line.join(" "));
+                    if (tspan.node().getComputedTextLength() > width) {
+                        line.pop();
+                        tspan.text(line.join(" "));
+                        line = [word];
+                        tspan = text.append("tspan").attr("x", 0).attr("y", y)
+                            .attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+                    }
+                }
+            });
+        }
+            // Get the Team Name from the Session Storage and pass back to the getRequest
+            var params ="teamName="+sessionStorage.getItem("teamName");
+            getRequest(params,callbackResponseActive);
+        };
+        init();
+        return {
+            init:init
+        };
+    }();
