@@ -10,13 +10,13 @@ html {
     float: left;
     font-family: "Arial", sans-serif;
 }
-.mainContainer {
+.dropDownContainer, .mainContainer {
     float: left;
     padding: 10px;
     width: 800px;
     font-family: "Arial", sans-serif;
 }
-.dropdownRegion{
+.dropDownRegion{
  float: right;
 }
 

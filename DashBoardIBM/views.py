@@ -12,11 +12,10 @@ def get_build_job_collection(request):
     get_build_job_collection
     """
     # List of build jobs for a given Team
-    # region =  "test1.ie.ibm.com"# request.GET.get("sessionStorage.region")
-    # print("request:"+request)
+    region =  request.GET.get("computerName")
     db = DBWrapper()
     db.db_open()
-    data = db.get_build_job_collection()
+    data = db.get_build_job_collection(region)
     db.db_close()
     return Response(data)
 
@@ -59,10 +58,19 @@ def get_build_job_usage_sub_teams(request):
     return Response(data)
 
 
-@api_view(['GET', ])
-def get_regions(request):
-    db = DBWrapper()
-    db.db_open()
-    data = db.get_domain_name_from_db()
-    db.db_close()
-    return Response(data)
+# @api_view(['GET', ])
+# def get_regions(request):
+#     region_name = request.GET.get("computerName")
+#     db = DBWrapper()
+#     db.db_open()
+#     data = db.get_regions(region_name)
+#     db.db_close()
+#     return Response(data)
+#
+# @api_view(['GET', ])
+# def get_domain_names(request):
+#     db = DBWrapper()
+#     db.db_open()
+#     data = db.get_domain_name_from_db()
+#     db.db_close()
+#     return Response(data)

@@ -12,6 +12,21 @@ var pageSetup = function(){
 $(document).ready(function(){
     pageSetup();
 
+    $(".dropDown").change(function(e){
+        if(e.target.options[e.target.selectedIndex].text == "ALL"){
+            sessionStorage.setItem("computerName","null");
+            location.reload();
+        }
+        if(e.target.options[e.target.selectedIndex].text == "Ireland"){
+            sessionStorage.setItem("computerName","test1.ie.ibm.com");
+            location.reload();
+        }
+        else {
+            location.reload();
+            sessionStorage.setItem("computerName","test1.uk.ibm.com");
+        }
+    });
+
     $(".teams").click(function(){
         // highlight the navbar
         $('.highlight').removeClass('highlight');

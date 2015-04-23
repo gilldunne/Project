@@ -4,12 +4,12 @@ var totalBuildjobsObj = function(){
         var data = [];
         var names = [];
 
-        //var getRequest = function (params, callbackResponse) {
-        var getRequest = function (callbackResponse) {
+        var getRequest = function (params, callbackResponse) {
+        //var getRequest = function (callbackResponse) {
             $.ajax({
                 type: "GET",
                 url: "/api/get_build_job_collection",
-                //data: params,
+                data: params,
                 cache: false,
 
                 success: function (response) {
@@ -120,10 +120,10 @@ var totalBuildjobsObj = function(){
                 })
             ;
         };
-        //var params = sessionStorage.getItem("region");
-        //console.log(params);
-        //getRequest(params, callbackResponse);
-        getRequest(callbackResponse);
+
+        var params = "computerName="+sessionStorage.getItem("computerName");
+        getRequest(params, callbackResponse);
+        //getRequest(callbackResponse);
     };
     init();
     return{

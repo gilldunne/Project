@@ -25,13 +25,17 @@ class DBWrapper:
     # Use build_job collection from db
     # Get all the distinct buildjobs from the DB and
     # get a count to show the number of servers per team
-    def get_build_job_collection(self):
+    def get_build_job_collection(self, region):
         c = self.db.buildjob
         list_of_teamName = self.get_distinct_list("teamName", None)
+        region_name = region
         team_list = []
         for team in list_of_teamName:
             list_of_buildjobs = {}
-            query = c.find({"teamName":str(team)}).distinct("name")
+            if(region == "null"):
+                query = c.find({"teamName":str(team)}).distinct("name")
+            else:
+                query = c.find({"teamName":str(team), "computerName":str(region_name)}).distinct("name")
             length = len(query)
             list_of_buildjobs.update({"name": team, "buildjob":length})
             team_list.append(list_of_buildjobs)
@@ -104,10 +108,12 @@ class DBWrapper:
             sub_teams.append(list_of_buildjobs)
         return sub_teams
 
-    def get_regions(self):
-        c = self.db.buildjob
-        list_domain_name = self.get_domain_name_from_db()
-        region = ""
-        for name in list_domain_name:
-            region = "test1.ie.ibm.com"
-        return region
+    # def get_regions(self, region_name):
+    #     c = self.db.buildjob
+    #     self.regionN = region_name
+    #     list_domain_name = self.get_domain_name_from_db()
+    #     region = ""
+    #     for name in list_domain_name:
+    #         if(name == region_name):
+    #             region = region_name
+    #     return region
