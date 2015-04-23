@@ -87,15 +87,19 @@
             </div>
         </div>
 
-        <div class="mainContainer">
-{#                        TODO - add in dropdowns#}
-                        <div class="dropdownRegion">
-                            <select>
-                                <option value="ie">IE</option>
-                                <option value="uk">UK</option>
-                            </select>
-                        </div>
+        <div class="dd">
+            <div class="dropdownRegion">
+                <p>Please select a region: </p>
+                <select class="regionDropDown">
+                    <option value="all">ALL</option>
+                    <option value="ie">test1.ie.ibm.com</option>
+                    <option value="uk">test1.uk.ibm.com</option>
+                </select>
+            </div>
+            <div id="testDiv"></div>
+        </div>
 
+        <div class="mainContainer">
             <div class="totalBuildJobs singleBars" ></div>
             <div class="chart"></div>
             <div class="activeInuseServerGraph"></div>
@@ -105,7 +109,6 @@
     </div>
 </div>
 </body>
-
 
 <script src="{% static 'scripts/componentBuildjobs.js' %}"></script>
 <script src="{% static 'scripts/buildjobUsage.js' %}"></script>

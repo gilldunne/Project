@@ -40,7 +40,7 @@ var buildJobUsageObj = function(){
             var color = ["#3366FF", "#2447B2", "#85A3FF"];
             var colors = d3.scale.category20();
             var outerRadius = (w - labelArea) / 2;
-            var innerRadius = 80;
+            var innerRadius = 90;
             var arc = d3.svg.arc()
                 .innerRadius(innerRadius)
                 .outerRadius(outerRadius);
@@ -89,6 +89,7 @@ var buildJobUsageObj = function(){
                     return "translate(" + arc.centroid(d) + ")";
                 })
                 .attr("text-anchor", "middle")
+                .style("font-size", "20px")
                 .text(function (d) {
                     return d.value;
                 });

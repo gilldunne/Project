@@ -4,10 +4,12 @@ var totalBuildjobsObj = function(){
         var data = [];
         var names = [];
 
+        //var getRequest = function (params, callbackResponse) {
         var getRequest = function (callbackResponse) {
             $.ajax({
                 type: "GET",
                 url: "/api/get_build_job_collection",
+                //data: params,
                 cache: false,
 
                 success: function (response) {
@@ -22,7 +24,7 @@ var totalBuildjobsObj = function(){
                                 '<p>The graph below displays the total number of servers per Team. This data is based on there being ' +
                                 '<br>one unique Buildjob name per Server. </p><br>' +
                             '</div>');
-                        callbackResponse(response);
+                            callbackResponse(response);
                     }
                 }
             });
@@ -118,6 +120,9 @@ var totalBuildjobsObj = function(){
                 })
             ;
         };
+        //var params = sessionStorage.getItem("region");
+        //console.log(params);
+        //getRequest(params, callbackResponse);
         getRequest(callbackResponse);
     };
     init();

@@ -102,9 +102,13 @@ path:hover {
 
 path:hover {
     fill:blue;
+    cursor: hand;
+    cursor: pointer;
 }
 rect:hover {
     fill:blue;
+        cursor: hand;
+    cursor: pointer;
 }
 
 .legend{

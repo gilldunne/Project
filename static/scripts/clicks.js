@@ -9,12 +9,11 @@ var pageSetup = function(){
     $(".activeInuseServerGraph").hide();
 };
 
-
 $(document).ready(function(){
     pageSetup();
 
     $(".teams").click(function(){
-
+        // highlight the navbar
         $('.highlight').removeClass('highlight');
         $(this).closest('li').addClass('highlight');
 
@@ -27,8 +26,8 @@ $(document).ready(function(){
 
     $(".singleTeam").click(function(e){
         sessionStorage.setItem("teamName",e.target.innerHTML);
-
-$('.highlight').removeClass('highlight');
+        // highlight the navbar
+        $('.highlight').removeClass('highlight');
         $(this).closest('li').addClass('highlight');
 
         var a = componentBuildJobsObj.init();
@@ -44,7 +43,7 @@ $('.highlight').removeClass('highlight');
     $(".singleComponent").click(function(e){
 
         sessionStorage.setItem("componentName",e.target.innerHTML);
-
+        // highlight the navbar
         $('.highlight').removeClass('highlight');
         $(this).addClass('highlight');
 
@@ -55,5 +54,4 @@ $('.highlight').removeClass('highlight');
         $(".activeInuseServerGraph").hide();
         $(".buildjobUsageGraph").show();
     });
-   
 });
