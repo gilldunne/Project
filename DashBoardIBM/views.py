@@ -50,10 +50,11 @@ def get_build_job_collection_component_names(request):
 
 @api_view(['GET', ])
 def get_build_job_usage_sub_teams(request):
+    region =  request.GET.get("computerName")
     component_name = request.GET.get("componentName")
     db = DBWrapper()
     db.db_open()
-    data = db.get_build_job_usage(component_name)
+    data = db.get_build_job_usage(component_name, region)
     db.db_close()
     return Response(data)
 

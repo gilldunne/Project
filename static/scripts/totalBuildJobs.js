@@ -1,6 +1,6 @@
 var totalBuildjobsObj = function(){
     var init = function() {
-        //$('.totalBuildJobs').empty();
+        $('.totalBuildJobs').empty();
         var data = [];
         var names = [];
 

@@ -93,16 +93,16 @@ class DBWrapper:
             return True
         return False
 
-    def get_build_job_usage(self, componentName):
+    def get_build_job_usage(self, componentName, region):
         c = self.db.buildjob
         distinct_query = {"componentName": componentName}
-        # region_name = self.get_regions()
+        region_name = region
         sub_teams = []
         list_of_subTeam = self.get_distinct_list("subTeam", distinct_query)
 
         for sub_team in list_of_subTeam:
             list_of_buildjobs = {}
-            query = c.find({"componentName": str(componentName),"subTeam":str(sub_team)}).distinct("name")
+            query = c.find({"componentName": str(componentName),"subTeam":str(sub_team), "computerName":str(region)}).distinct("name")
             length = len(query)
             list_of_buildjobs.update({"count":length, "status": sub_team})
             sub_teams.append(list_of_buildjobs)
