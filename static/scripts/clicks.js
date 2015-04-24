@@ -15,19 +15,25 @@ $(document).ready(function(){
     $(".dropDown").change(function(e){
         if(e.target.options[e.target.selectedIndex].text == "ALL"){
             sessionStorage.setItem("computerName","null");
-        document.getElementById('testDiv').innerHTML = sessionStorage.getItem("computerName");
+            totalBuildjobsObj.init();
+            buildJobUsageObj.init();
+            activeInuseServersObj.init();
+            componentBuildJobsObj.init();
         }
-        if(e.target.options[e.target.selectedIndex].text == "Ireland"){
+        else if(e.target.options[e.target.selectedIndex].text == "Ireland"){
             sessionStorage.setItem("computerName","test1.ie.ibm.com");
-        document.getElementById('testDiv').innerHTML = sessionStorage.getItem("computerName");
-        totalBuildjobsObj.init();
+            totalBuildjobsObj.init();
+            buildJobUsageObj.init();
+            activeInuseServersObj.init();
+            componentBuildJobsObj.init();
         }
         else {
             sessionStorage.setItem("computerName","test1.uk.ibm.com");
-        totalBuildjobsObj.init();
-        document.getElementById('testDiv').innerHTML = sessionStorage.getItem("computerName");
+            totalBuildjobsObj.init();
+            buildJobUsageObj.init();
+            activeInuseServersObj.init();
+            componentBuildJobsObj.init();
         }
-        document.getElementById('testDiv').innerHTML = sessionStorage.getItem("computerName");
     });
 
     $(".teams").click(function(){

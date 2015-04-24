@@ -41,15 +41,18 @@ class DBWrapper:
             team_list.append(list_of_buildjobs)
         return team_list
 
-    def get_build_job_collection_component_names(self, teamName):
+    def get_build_job_collection_component_names(self, teamName, region):
         c = self.db.buildjob
         distinct_query = {"teamName": teamName}
-        # region_name = self.get_regions()
+        region_name = region
         list_of_componentName = self.get_distinct_list("componentName", distinct_query)
         team_list = []
         for component in list_of_componentName:
             list_of_buildjobs = {}
-            query = c.find({"componentName":str(component)}).distinct("name")
+            if(region == "null"):
+                query = c.find({"componentName":str(component)}).distinct("name")
+            else:
+                query = c.find({"componentName":str(component), "computerName":str(region_name)}).distinct("name")
             length = len(query)
             list_of_buildjobs.update({"name": component, "buildjob":length})
             team_list.append(list_of_buildjobs)
@@ -60,15 +63,18 @@ class DBWrapper:
         list_of_distinct_names = c.find(query).distinct(collection_key)
         return list_of_distinct_names
 
-    def get_active_inactive_per_team(self, teamName):
+    def get_active_inactive_per_team(self, teamName, region):
         c = self.db.buildjob
         distinct_query = {"teamName": teamName}
-        # region_name = self.get_regions()), "computerName":str(region_name)
+        region_name = region
         list_of_componentName = self.get_distinct_list("componentName", distinct_query)
         team_list = [] # TODO - Rename this bad name
         for component in list_of_componentName:
             list_of_data = {} # TODO - Rename this bad name
-            list_of_distinct_buildjobs = c.find({"componentName":str(component)}).distinct("name")
+            if(region == "null"):
+               list_of_distinct_buildjobs = c.find({"componentName":str(component)}).distinct("name")
+            else:
+                list_of_distinct_buildjobs = c.find({"componentName":str(component), "computerName":str(region_name)}).distinct("name")
             freq = { "InUse":0, "NotInUse":0 } # create obj
 
             # get the last date of a give buildjob
@@ -102,18 +108,12 @@ class DBWrapper:
 
         for sub_team in list_of_subTeam:
             list_of_buildjobs = {}
-            query = c.find({"componentName": str(componentName),"subTeam":str(sub_team), "computerName":str(region)}).distinct("name")
+            if(region == "null"):
+                query = c.find({"componentName": str(componentName),"subTeam":str(sub_team)}).distinct("name")
+            else:
+                query = c.find({"componentName": str(componentName),"subTeam":str(sub_team), "computerName":str(region_name)}).distinct("name")
+            # query = c.find({"componentName": str(componentName),"subTeam":str(sub_team), "computerName":str(region_name)}).distinct("name")
             length = len(query)
             list_of_buildjobs.update({"count":length, "status": sub_team})
             sub_teams.append(list_of_buildjobs)
         return sub_teams
-
-    # def get_regions(self, region_name):
-    #     c = self.db.buildjob
-    #     self.regionN = region_name
-    #     list_domain_name = self.get_domain_name_from_db()
-    #     region = ""
-    #     for name in list_domain_name:
-    #         if(name == region_name):
-    #             region = region_name
-    #     return region

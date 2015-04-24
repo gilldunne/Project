@@ -18,7 +18,7 @@ var componentBuildJobsObj = function() {
                         $('.chart').append(
                             '<div class="lotusui30">'+
                                 '<div class="lotusHeading">'+
-                                    '<h1>'+ params.replace('teamName=', '')+'<h1>'+
+                                    '<h1>'+ params.replace(/teamName=|&computerName=|test1.uk.ibm.com|test1.ie.ibm.com|null/g, '')+'<h1>'+
                                 '</div>'+
                                 '<h3>Number of Servers for each Component</h3>' +
                                 '<p>The below graph shows the number of servers for each component on the team</p><br>'+
@@ -110,7 +110,7 @@ var componentBuildJobsObj = function() {
 
         };
 
-        var params= "teamName="+sessionStorage.getItem("teamName");
+        var params= "teamName="+sessionStorage.getItem("teamName")+"&"+"computerName="+sessionStorage.getItem("computerName");
         getRequest(params, callbackResponse);
     };
     init();

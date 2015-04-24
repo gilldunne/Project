@@ -17,7 +17,7 @@ var buildJobUsageObj = function(){
                         $('.buildjobUsageGraph').append(
                             '<div class="lotusui30">'+
                                 '<div class="lotusHeading">'+
-                                    '<h1 class="title">'+ params.replace('componentName=', '')+'</h1>' +
+                                    '<h1 class="title">'+ params.replace(/componentName=|&computerName=|test1.uk.ibm.com|test1.ie.ibm.com|null/g, '')+'</h1>' +
                                 '</div>'+
                                 '<h3>Server Usages</h3>'+
                                 '<p>The number of servers based on the usages of each component. </p><br>');
@@ -125,7 +125,7 @@ var buildJobUsageObj = function(){
 
         }
 
-        var params = "componentName="+sessionStorage.getItem("componentName");
+        var params = "componentName="+sessionStorage.getItem("componentName") +"&"+"computerName="+sessionStorage.getItem("computerName");
         getRequest(params, callbackResponseUsage);
     };
     init();

@@ -27,9 +27,10 @@ def get_active_inactive_per_team(request):
     get_active_inactive_per_team
     """
     team_name = request.GET.get("teamName")
+    region =  request.GET.get("computerName")
     db = DBWrapper()
     db.db_open()
-    data = db.get_active_inactive_per_team(team_name)
+    data = db.get_active_inactive_per_team(team_name, region)
     db.db_close()
     return Response(data)
 
@@ -41,9 +42,10 @@ def get_build_job_collection_component_names(request):
     get_build_job_collection_component_names
     """
     team_name = request.GET.get("teamName")
+    region =  request.GET.get("computerName")
     db = DBWrapper()
     db.db_open()
-    data = db.get_build_job_collection_component_names(team_name)
+    data = db.get_build_job_collection_component_names(team_name, region)
     db.db_close()
     return Response(data)
 

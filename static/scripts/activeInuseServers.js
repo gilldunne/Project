@@ -318,7 +318,7 @@ var activeInuseServersObj = function() {
             });
         }
             // Get the Team Name from the Session Storage and pass back to the getRequest
-            var params ="teamName="+sessionStorage.getItem("teamName");
+            var params ="teamName="+sessionStorage.getItem("teamName") +"&"+"computerName="+sessionStorage.getItem("computerName");
             getRequest(params,callbackResponseActive);
         };
         init();
