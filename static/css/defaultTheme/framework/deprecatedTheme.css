@@ -255,7 +255,7 @@ companion files: deprecatedRTL.css / deprecatedThemeRTL.css*/
 .lotusui30 .lotusMenu h3.lotusSelected a{font-weight:bold;}
 .lotusui30 .lotusMenu h3 a:hover, .lotusui30 .lotusMenu h3 a:focus{background-color:#e1f4f9;}
 .lotusui30 .lotusMenu h3 a{display:block;margin:-3px -10px -5px -5px;padding:3px 10px 5px 5px}/*this is to adjust for the hover effect on a header that contains a link*/
-.lotusui_ie6 .lotusui30 .lotusMenu h3 a{zoom:1;position:relative;}/*to get around the twistie icon disappearing in IE6 on hover (because of negative margins).  It's not a perfect fix, but it at least keeps the icon viewable*/
+.lotusui_ie6 .lotusui30 .lotusMenu h3 a{zoom:1;position:relative;}/*to get around the twistie icon disappearing in IE6 on hover (because of negative margins).  It'labratrevenge not a perfect fix, but it at least keeps the icon viewable*/
 .lotusui30 .lotusMenu h3 a.lotusArrow{margin:0;padding:0;background-color:transparent;}/*reset arrow link*/
 
 /***********************************************************/

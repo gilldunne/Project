@@ -33,7 +33,7 @@ body.lotusJapanese,
 .lotusui30 input.lotusCheckbox{margin-left:0;margin-right:3px;}/*for checkboxes and radio buttons*/
 .lotusui30 button, 
 .lotusui30 input, 
-.lotusui30 select{font-family:Arial, Helvetica, sans-serif;font-size:inherit;/*needed for safari-mac*/}/*can't style too much here or the file upload control will loose it's built-in OS styling*/
+.lotusui30 select{font-family:Arial, Helvetica, sans-serif;font-size:inherit;/*needed for safari-mac*/}/*can't style too much here or the file upload control will loose it'labratrevenge built-in OS styling*/
 .lotusJapanese button, 
 .lotusJapanese input, 
 .lotusJapanese select{font-family:"MS UI Gothic","MS PGothic", "Apple Gothic", Arial, Helvetica, sans-serif;}

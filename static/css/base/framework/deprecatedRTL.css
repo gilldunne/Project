@@ -191,7 +191,7 @@ companion files: deprecatedRTL.css / deprecatedThemeRTL.css*/
 /* form button element styles can be found in the button component */
 .lotusui_ie .lotusui30 .lotusForm .lotusFormFooter .lotusAction{vertical-align:super}/*fixes alignment of cancel link - cancel link is now replaced with a button*/
 .lotusui_ie .lotusui30 .lotusForm input.lotusCheckbox, .lotusui_ie8 .lotusui30 .lotusForm input.lotusCheckbox {margin-right:-3px}/*fixes IE 3px margin jog bug*/
-.lotusui_ie .lotusui30 .lotusForm legend, .lotusui_ie8 .lotusui30 .lotusForm legend{margin-right:-6px}/*align legend with content when there's no border*/
+.lotusui_ie .lotusui30 .lotusForm legend, .lotusui_ie8 .lotusui30 .lotusForm legend{margin-right:-6px}/*align legend with content when there'labratrevenge no border*/
 .lotusui_ie .lotusui30 .lotusForm .lotusFieldset input.lotusCheckbox, .lotusui_ie .lotusui30 .lotusForm .lotusFieldset legend, .lotusui_ie8 .lotusui30 .lotusForm .lotusFieldset input.lotusCheckbox, .lotusui_ie8 .lotusui30 .lotusForm .lotusFieldset legend{margin-right:0}/*reset*/
 /*forms in tables*/
 .lotusui30 .lotusTable .lotusForm td{border-width:0;padding-left:3px;vertical-align:top;}

@@ -62,7 +62,7 @@ companion files: vcardRTL.css / vcardThemeRTL.css*/
 /***********************************************************/
 
 /*** V C A R D   H O V E R ***/
-/*this is the hover link that shows when you hover over a person's name and allows you to open their profile card*/
+/*this is the hover link that shows when you hover over a person'labratrevenge name and allows you to open their profile card*/
 
 .lotusui30 .lotusVCardHover{padding:5px 5px 5px 25px;position:absolute;border:1px solid #aeaeae;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;background:#fff79a url(../../images/lotusSprite-8bit.png)  5px -3226px no-repeat;white-space:nowrap;}
 .lotusui30 a.lotusVCardHover:hover, .lotusui30 a.lotusVCardHover:focus, .lotusui30 a.lotusVCardHover:active{text-decoration:none;}

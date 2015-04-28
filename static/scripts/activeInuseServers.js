@@ -15,6 +15,7 @@ var activeInuseServersObj = function() {
                 url: "/api/get_active_inactive_per_team",
                 cache: false    ,
                 success: function (response) {
+                    console.log(params);
                     if(response.length==0)
                         $('.activeInuseServerGraph').append('<h2>No Graph to for this data</h2>');
                     else {

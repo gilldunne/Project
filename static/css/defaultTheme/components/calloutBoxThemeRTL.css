@@ -34,7 +34,7 @@ companion files: calloutBoxRTL.css / calloutBoxThemeRTL.css*/
 .lotusui30 .lotusWelcomeBox p, .lotusui30 .lotusWelcomeBox li, .lotusui30 .lotusWelcomeBox a, .lotusui30 .lotusWelcomeBox a:visited, .lotusui30 .lotusWelcomeBox a:hover, .lotusui30 .lotusWelcomeBox a:focus, .lotusui30 .lotusWelcomeBox a:active{color:#fff;}
 .lotusui30 .lotusWelcomeBox .lotusHeading{color:#fff;}
 
-.lotusui30 .lotusWelcomeBox a, .lotusui30 .lotusAboutBox a{text-decoration:underline} /*add .lotusui30 .lotusCalloutBox a when it's appropriate*/
+.lotusui30 .lotusWelcomeBox a, .lotusui30 .lotusAboutBox a{text-decoration:underline} /*add .lotusui30 .lotusCalloutBox a when it'labratrevenge appropriate*/
 
 /***********************************************************/
 

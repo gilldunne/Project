@@ -16,12 +16,6 @@ class DBWrapper:
     def db_close(self):
         self.client.close()
 
-    # Get all the domain names of the servers
-    def get_domain_name_from_db(self):
-        c = self.db.buildjob
-        list_of_computer_names = c.find().distinct("computerName")
-        return list_of_computer_names
-
     # Use build_job collection from db
     # Get all the distinct buildjobs from the DB and
     # get a count to show the number of servers per team
@@ -63,35 +57,32 @@ class DBWrapper:
         list_of_distinct_names = c.find(query).distinct(collection_key)
         return list_of_distinct_names
 
-    def get_active_inactive_per_team(self, teamName, region):
+    def get_active_inactive_per_team(self, team_name, region):
         c = self.db.buildjob
-        distinct_query = {"teamName": teamName}
-        region_name = region
-        list_of_componentName = self.get_distinct_list("componentName", distinct_query)
-        team_list = [] # TODO - Rename this bad name
-        for component in list_of_componentName:
-            list_of_data = {} # TODO - Rename this bad name
-            if(region == "null"):
-               list_of_distinct_buildjobs = c.find({"componentName":str(component)}).distinct("name")
+        distinct_query = {"teamName": team_name}
+        list_of_component_name = self.get_distinct_list("componentName", distinct_query)
+        active_inactive_team_list = []
+        for component in list_of_component_name:
+            list_of_names_and_freq = {}
+            if region == "null":
+                list_of_distinct_build_jobs = c.find({"componentName": str(component)}).distinct("name")
             else:
-                list_of_distinct_buildjobs = c.find({"componentName":str(component), "computerName":str(region_name)}).distinct("name")
-            freq = { "InUse":0, "NotInUse":0 } # create obj
-
-            # get the last date of a give buildjob
-            for buildjob in list_of_distinct_buildjobs:
-                buildjob_date = c.find({"name":str(buildjob)},{"endDate":1}).sort("endDate",-1).limit(1)
-
+                list_of_distinct_build_jobs = c.find(
+                    {"componentName": str(component), "computerName": str(region)}).distinct("name")
+            freq = {"InUse": 0, "NotInUse": 0}
+            # get the last date of a give build_job
+            for build_job in list_of_distinct_build_jobs:
+                build_job_date = c.find({"name": str(build_job)}, {"endDate": 1}).sort("endDate", -1).limit(1)
                 # decide on active or inactive
-                if self.is_inactive(buildjob_date[0]["endDate"]):
-                    new_inuse = freq["InUse"] +1
+                if self.is_inactive(build_job_date[0]["endDate"]):
+                    new_inuse = freq["InUse"] + 1
                     freq["InUse"] = new_inuse
                 else:
-                    new_notinuse = freq["NotInUse"] +1
-                    freq["NotInUse"] = new_notinuse
-
-            list_of_data.update({"name": component, "freq":freq})
-            team_list.append(list_of_data)
-        return team_list
+                    new_not_inuse = freq["NotInUse"] + 1
+                    freq["NotInUse"] = new_not_inuse
+            list_of_names_and_freq.update({"name": component, "freq": freq})
+            active_inactive_team_list.append(list_of_names_and_freq)
+        return active_inactive_team_list
 
     def is_inactive(self, buildjob_date):
         last_seven_days = datetime.today() - timedelta(days=7)

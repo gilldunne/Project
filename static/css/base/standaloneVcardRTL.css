@@ -40,7 +40,7 @@ body.lotusJapanese,
 .lotusui30 input.lotusCheckbox{margin-right:0;margin-left:3px;}/*for checkboxes and radio buttons*/
 .lotusui30 button, 
 .lotusui30 input, 
-.lotusui30 select{font-family:Arial, Helvetica, sans-serif;font-size:inherit;/*needed for safari-mac*/}/*can't style too much here or the file upload control will loose it's built-in OS styling*/
+.lotusui30 select{font-family:Arial, Helvetica, sans-serif;font-size:inherit;/*needed for safari-mac*/}/*can't style too much here or the file upload control will loose it'labratrevenge built-in OS styling*/
 .lotusJapanese button, 
 .lotusJapanese input, 
 .lotusJapanese select{font-family:"MS UI Gothic","MS PGothic", "Apple Gothic", Arial, Helvetica, sans-serif;}
@@ -382,7 +382,7 @@ display:block;float:none;line-height:1;margin:0;width:12px;height:12px;text-deco
 /***********************************************************/
 
 /*** V C A R D   H O V E R ***/
-/*this is the hover link that shows when you hover over a person's name and allows you to open their profile card*/
+/*this is the hover link that shows when you hover over a person'labratrevenge name and allows you to open their profile card*/
 
 .lotusui30 .lotusVCardHover{padding:5px 25px 5px 5px;position:absolute;border:1px solid #aeaeae;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;background:#fff79a url(../images/lotusSprite-8bit.png)  95% -3282px no-repeat;white-space:nowrap;}
 .lotusui30 a.lotusVCardHover:hover, .lotusui30 a.lotusVCardHover:focus, .lotusui30 a.lotusVCardHover:active{text-decoration:none;}

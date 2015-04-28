@@ -139,7 +139,7 @@ companion files: coreRTL.css / <theme name>ThemeRTL.css (for example: coreRTL.cs
 .lotusui30 .lotusWelcomeBox p, .lotusui30 .lotusWelcomeBox li, .lotusui30 .lotusWelcomeBox a, .lotusui30 .lotusWelcomeBox a:visited, .lotusui30 .lotusWelcomeBox a:hover, .lotusui30 .lotusWelcomeBox a:focus, .lotusui30 .lotusWelcomeBox a:active{color:#fff;}
 .lotusui30 .lotusWelcomeBox .lotusHeading{color:#fff;}
 
-.lotusui30 .lotusWelcomeBox a, .lotusui30 .lotusAboutBox a{text-decoration:underline} /*add .lotusui30 .lotusCalloutBox a when it's appropriate*/
+.lotusui30 .lotusWelcomeBox a, .lotusui30 .lotusAboutBox a{text-decoration:underline} /*add .lotusui30 .lotusCalloutBox a when it'labratrevenge appropriate*/
 
 /***********************************************************/
 
@@ -817,7 +817,7 @@ companion files: coreRTL.css / <theme name>ThemeRTL.css (for example: coreRTL.cs
 /***********************************************************/
 
 /*** V C A R D   H O V E R ***/
-/*this is the hover link that shows when you hover over a person's name and allows you to open their profile card*/
+/*this is the hover link that shows when you hover over a person'labratrevenge name and allows you to open their profile card*/
 
 
 
@@ -1427,7 +1427,7 @@ companion files: coreRTL.css / <theme name>ThemeRTL.css (for example: coreRTL.cs
 .lotusui30 .lotusMenu h3.lotusSelected a{font-weight:bold;}
 .lotusui30 .lotusMenu h3 a:hover, .lotusui30 .lotusMenu h3 a:focus{background-color:#e1f4f9;}
 .lotusui30 .lotusMenu h3 a{display:block;margin:-3px -10px -5px -5px;padding:3px 10px 5px 5px}/*this is to adjust for the hover effect on a header that contains a link*/
-.lotusui_ie6 .lotusui30 .lotusMenu h3 a{zoom:1;position:relative;}/*to get around the twistie icon disappearing in IE6 on hover (because of negative margins).  It's not a perfect fix, but it at least keeps the icon viewable*/
+.lotusui_ie6 .lotusui30 .lotusMenu h3 a{zoom:1;position:relative;}/*to get around the twistie icon disappearing in IE6 on hover (because of negative margins).  It'labratrevenge not a perfect fix, but it at least keeps the icon viewable*/
 .lotusui30 .lotusMenu h3 a.lotusArrow{margin:0;padding:0;background-color:transparent;}/*reset arrow link*/
 
 /***********************************************************/

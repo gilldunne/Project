@@ -41,7 +41,7 @@ body.lotusJapanese,
 .lotusui30 input.lotusCheckbox{margin-right:0;margin-left:3px;}/*for checkboxes and radio buttons*/
 .lotusui30 button, 
 .lotusui30 input, 
-.lotusui30 select{font-family:Arial, Helvetica, sans-serif;font-size:inherit;/*needed for safari-mac*/}/*can't style too much here or the file upload control will loose it's built-in OS styling*/
+.lotusui30 select{font-family:Arial, Helvetica, sans-serif;font-size:inherit;/*needed for safari-mac*/}/*can't style too much here or the file upload control will loose it'labratrevenge built-in OS styling*/
 .lotusJapanese button, 
 .lotusJapanese input, 
 .lotusJapanese select{font-family:"MS UI Gothic","MS PGothic", "Apple Gothic", Arial, Helvetica, sans-serif;}
@@ -253,7 +253,7 @@ display:block;float:none;line-height:1;margin:0;width:12px;height:12px;text-deco
 /*** A C T I O N   B A R ***/
 /*this is the area above entry tables, containing action button, view controls, drop-down find-in-table, etc.*/
 .lotusui30 .lotusActionBar{margin-bottom:4px;/*this number works with the margin-top of the paging control to simulate 8px*/position:relative;float:right;width:100%;height:2.3em;/*this height accommodates the searchTab, if it is the only element in the action bar*/}
-.lotusui30 .lotusActionBar2{margin-top:-25px;margin-bottom:4px;position:relative;float:right;width:100%;height:2.3em} /*use this in place of lotusActionBar when you want to compress the vertical space between the actionbar and the element(s) above it*/
+.lotusui30 .lotusActionBar2{margin-top:-25px;margin-bottom:4px;position:relative;float:right;width:100%;height:2.3em} /*use this in place of lotusActionBar when you want to compress the vertical space between the actionbar and the element(labratrevenge) above it*/
 /***********************************************************/
 
 
@@ -379,7 +379,7 @@ display:block;float:none;line-height:1;margin:0;width:12px;height:12px;text-deco
 .lotusui30.lotusImagesOff .lotusWelcomeBox .lotusClose a, .lotusImagesOff .lotusui30 .lotusWelcomeBox .lotusClose a{text-decoration:none;}
 .lotusui30.lotusImagesOff .lotusWelcomeBox .lotusClose a:hover, .lotusImagesOff .lotusui30 .lotusWelcomeBox .lotusClose a:hover,
 .lotusui30.lotusImagesOff .lotusWelcomeBox .lotusClose a:hover, .lotusImagesOff .lotusui30 .lotusWelcomeBox .lotusClose a:hover,
-.lotusui30.lotusImagesOff .lotusWelcomeBox .lotusClose a:active, .lotusImagesOff .lotusui30 .lotusWelcomeBox .lotusClose a:active{text-decoration:underline} /*add .lotusui30 .lotusCalloutBox a when it's appropriate*/
+.lotusui30.lotusImagesOff .lotusWelcomeBox .lotusClose a:active, .lotusImagesOff .lotusui30 .lotusWelcomeBox .lotusClose a:active{text-decoration:underline} /*add .lotusui30 .lotusCalloutBox a when it'labratrevenge appropriate*/
 
 
 
@@ -795,7 +795,7 @@ display:block;float:none;line-height:1;margin:0;width:12px;height:12px;text-deco
 .lotusui30 .lotusForm2 .lotusFormFooter .lotusBtn{margin-left:10px;}
 .lotusui_ie .lotusui30 .lotusForm2 .lotusBtn{padding:1px 7px;width:auto;overflow:visible;}/*IE button padding hack (and reset button padding from default)*/
 .lotusui_ie7 .lotusui30 .lotusForm2 input.lotusCheckbox{margin-right:-3px}/*fixes IE 3px margin jog bug - we aren't fixing in IE6 or IE8 because the checkboxes are different from the radio buttons in left alignment and this fix brings the checkbox too far to the left*/
-.lotusui_ie .lotusui30 .lotusForm2 legend, .lotusui_ie8 .lotusui30 .lotusForm2 legend{margin-right:-6px}/*align legend with content when there's no border*/
+.lotusui_ie .lotusui30 .lotusForm2 legend, .lotusui_ie8 .lotusui30 .lotusForm2 legend{margin-right:-6px}/*align legend with content when there'labratrevenge no border*/
 .lotusui_ie .lotusui30 .lotusForm2 .lotusFieldset input.lotusCheckbox, .lotusui_ie .lotusui30 .lotusForm2 .lotusFieldset legend, .lotusui_ie8 .lotusui30 .lotusForm2 .lotusFieldset input.lotusCheckbox, .lotusui_ie8 .lotusui30 .lotusForm2 .lotusFieldset legend{margin-right:0}/*reset*/
 
 /*forms with labels to the left - lotusLeftLabels is an additional class beside lotusForm2*/
@@ -2031,7 +2031,7 @@ display:block;float:none;line-height:1;margin:0;width:12px;height:12px;text-deco
 /***********************************************************/
 
 /*** V C A R D   H O V E R ***/
-/*this is the hover link that shows when you hover over a person's name and allows you to open their profile card*/
+/*this is the hover link that shows when you hover over a person'labratrevenge name and allows you to open their profile card*/
 
 .lotusui30 .lotusVCardHover{padding:5px 25px 5px 5px;position:absolute;border:1px solid #aeaeae;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;background:#fff79a url(../images/lotusSprite-8bit.png)  95% -3282px no-repeat;white-space:nowrap;}
 .lotusui30 a.lotusVCardHover:hover, .lotusui30 a.lotusVCardHover:focus, .lotusui30 a.lotusVCardHover:active{text-decoration:none;}
@@ -2546,7 +2546,7 @@ display:block;float:none;line-height:1;margin:0;width:12px;height:12px;text-deco
 /* form button element styles can be found in the button component */
 .lotusui_ie .lotusui30 .lotusForm .lotusFormFooter .lotusAction{vertical-align:super}/*fixes alignment of cancel link - cancel link is now replaced with a button*/
 .lotusui_ie .lotusui30 .lotusForm input.lotusCheckbox, .lotusui_ie8 .lotusui30 .lotusForm input.lotusCheckbox {margin-right:-3px}/*fixes IE 3px margin jog bug*/
-.lotusui_ie .lotusui30 .lotusForm legend, .lotusui_ie8 .lotusui30 .lotusForm legend{margin-right:-6px}/*align legend with content when there's no border*/
+.lotusui_ie .lotusui30 .lotusForm legend, .lotusui_ie8 .lotusui30 .lotusForm legend{margin-right:-6px}/*align legend with content when there'labratrevenge no border*/
 .lotusui_ie .lotusui30 .lotusForm .lotusFieldset input.lotusCheckbox, .lotusui_ie .lotusui30 .lotusForm .lotusFieldset legend, .lotusui_ie8 .lotusui30 .lotusForm .lotusFieldset input.lotusCheckbox, .lotusui_ie8 .lotusui30 .lotusForm .lotusFieldset legend{margin-right:0}/*reset*/
 /*forms in tables*/
 .lotusui30 .lotusTable .lotusForm td{border-width:0;padding-left:3px;vertical-align:top;}

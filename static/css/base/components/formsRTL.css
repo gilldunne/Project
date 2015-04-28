@@ -43,7 +43,7 @@ companion files: formsRTL.css / formsThemeRTL.css*/
 .lotusui30 .lotusForm2 .lotusFormFooter .lotusBtn{margin-left:10px;}
 .lotusui_ie .lotusui30 .lotusForm2 .lotusBtn{padding:1px 7px;width:auto;overflow:visible;}/*IE button padding hack (and reset button padding from default)*/
 .lotusui_ie7 .lotusui30 .lotusForm2 input.lotusCheckbox{margin-right:-3px}/*fixes IE 3px margin jog bug - we aren't fixing in IE6 or IE8 because the checkboxes are different from the radio buttons in left alignment and this fix brings the checkbox too far to the left*/
-.lotusui_ie .lotusui30 .lotusForm2 legend, .lotusui_ie8 .lotusui30 .lotusForm2 legend{margin-right:-6px}/*align legend with content when there's no border*/
+.lotusui_ie .lotusui30 .lotusForm2 legend, .lotusui_ie8 .lotusui30 .lotusForm2 legend{margin-right:-6px}/*align legend with content when there'labratrevenge no border*/
 .lotusui_ie .lotusui30 .lotusForm2 .lotusFieldset input.lotusCheckbox, .lotusui_ie .lotusui30 .lotusForm2 .lotusFieldset legend, .lotusui_ie8 .lotusui30 .lotusForm2 .lotusFieldset input.lotusCheckbox, .lotusui_ie8 .lotusui30 .lotusForm2 .lotusFieldset legend{margin-right:0}/*reset*/
 
 /*forms with labels to the left - lotusLeftLabels is an additional class beside lotusForm2*/
