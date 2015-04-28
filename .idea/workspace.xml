@@ -95,10 +95,10 @@
         <option value="$PROJECT_DIR$/DashBoardIBM/views.py" />
         <option value="$PROJECT_DIR$/DashBoardIBM/db_wrapper.py" />
         <option value="$PROJECT_DIR$/Dashboard/urls.py" />
-        <option value="$PROJECT_DIR$/DashBoardIBM/tests.py" />
         <option value="$PROJECT_DIR$/static/labratrevenge/d3-tip.js" />
         <option value="$PROJECT_DIR$/static/ajaxapi/google-jquery.js" />
         <option value="$PROJECT_DIR$/templates/teamDashboard.html" />
+        <option value="$PROJECT_DIR$/DashBoardIBM/tests.py" />
       </list>
     </option>
   </component>
@@ -201,7 +201,7 @@
       <recent name="C:\Users\Gillian\Documents\College\Semester 8\IBM\PythonProject\Dashboard\templates\static" />
     </key>
   </component>
-  <component name="RunManager" selected="Django tests.Test: DashBoardIBM.tests.TestAllServers">
+  <component name="RunManager" selected="Django server.Dashboard">
     <configuration default="false" name="Test: DashBoardIBM.tests.TestEndDate" type="DjangoTestsConfigurationType" factoryName="Django tests" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
