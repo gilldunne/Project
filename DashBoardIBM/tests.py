@@ -1,5 +1,6 @@
 from django.test import TestCase
 from datetime import timedelta, datetime
+import pymongo
 from DashBoardIBM.db_wrapper import DBWrapper
 
 class TestEndDate(TestCase):
@@ -40,3 +41,17 @@ class TestAllServers(TestCase):
         response = self.client.get(url, format='json')
         # assert
         return self.assertEqual(response.data, expected)
+
+    def test_get_build_job_collection_component_names(self):
+        # arrange
+        url = ('/api/get_build_job_collection_component_names?teamName=Connections%20Team&computerName=test1.ie.ibm.com')
+        expected = [
+            {"buildjob": 7, "name": "Connections"},
+            {"buildjob": 4, "name": "Social Contacts"}
+        ]
+        # act
+        response = self.client.get(url, format='json')
+        # assert
+        return self.assertEqual(response.data, expected)
+
+
